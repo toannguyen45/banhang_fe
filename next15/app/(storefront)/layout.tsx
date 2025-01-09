@@ -13,7 +13,11 @@ const StoreFrontLayout = ({
         <div className='w-screen h-screen overflow-x-hidden overflow-y-auto'>
             <Header />
             <Navbar />
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</main>
+            <main className="bg-slate-50 h-screen w-full">
+                <div className='container'>
+                    {children}
+                </div>
+            </main>
             <Toaster />
             <Footer />
         </div>
