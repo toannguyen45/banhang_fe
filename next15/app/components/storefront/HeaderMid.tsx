@@ -4,7 +4,7 @@ import React from 'react';
 
 const HeaderMid = () => {
     return (
-        <div className='bg-white sticky top-0 z-50  border-b'>
+        <div className='bg-white border-b md:static md:border-none md:bg-transparent md:shadow-none sticky top-0 z-40'>
             <div className='container flex items-center justify-between'>
                 <div className='flex items-center gap-1 md:hidden'>
                     <button className='border-2 border-black bg-transparent h-10 w-12 flex items-center justify-center'>
