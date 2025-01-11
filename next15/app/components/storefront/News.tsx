@@ -9,14 +9,15 @@ const News: FC<Props> = (props) => {
     return (
         <section className="flex flex-col gap-4 items-center py-24">
             <p className="mb-5 text-4xl">Tin tức</p>
-            {/* Grid layout for responsive design */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                <div className="bg-white w-full">
+                <div className="bg-white w-full hover:shadow-xl transition-shadow duration-500">
                     <div className="relative overflow-hidden h-64 group">
                         <Image
                             src={'/images/news-1.jpg'}
                             alt="news"
                             fill
+                            quality={100}
+                            loading='lazy'
                             className="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-110"
                         />
                     </div>
@@ -36,13 +37,14 @@ const News: FC<Props> = (props) => {
                         </Link>
                     </div>
                 </div>
-                {/* Repeat the same block for other news items */}
-                <div className="bg-white w-full">
+                <div className="bg-white w-full hover:shadow-xl transition-shadow duration-500">
                     <div className="relative overflow-hidden h-64 group">
                         <Image
-                            src={'/images/news-1.jpg'}
+                            src={'/images/news-2.jpg'}
                             alt="news"
                             fill
+                            quality={100}
+                            loading='lazy'
                             className="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-110"
                         />
                     </div>
@@ -62,12 +64,13 @@ const News: FC<Props> = (props) => {
                         </Link>
                     </div>
                 </div>
-                <div className="bg-white w-full">
+                <div className="bg-white w-full hover:shadow-xl transition-shadow duration-500">
                     <div className="relative overflow-hidden h-64 group">
                         <Image
-                            src={'/images/news-1.jpg'}
+                            src={'/images/news-3.jpg'}
                             alt="news"
                             fill
+                            quality={100}
                             className="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-110"
                         />
                     </div>

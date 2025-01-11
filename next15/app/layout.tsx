@@ -3,31 +3,26 @@ import localFont from 'next/font/local'
 import "./globals.css";
 
 
-const roboto = localFont({
+const quickSand = localFont({
   src: [
     {
-      path: './font/Roboto-Light.ttf',
+      path: './fonts/Quicksand-Light.ttf',
       weight: '300',
     },
     {
-      path: './font/Roboto-Regular.ttf',
+      path: './fonts/Quicksand-Regular.ttf',
       weight: '400',
     },
     {
-      path: './font/Roboto-Italic.ttf',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: './font/Roboto-Medium.ttf',
+      path: './fonts/Quicksand-Medium.ttf',
       weight: '500',
     },
     {
-      path: './font/Roboto-SemiBold.ttf',
+      path: './fonts/Quicksand-SemiBold.ttf',
       weight: '600',
     },
     {
-      path: './font/Roboto-Bold.ttf',
+      path: './fonts/Quicksand-Bold.ttf',
       weight: '700',
     },
   ],
@@ -46,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.className}`} suppressHydrationWarning
+        className={`${quickSand.className}`} suppressHydrationWarning
       >
         {children}
       </body>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, MenuIcon, ShoppingBag } from "lucide-react";
+import { ChevronDown, Menu, ShoppingBag, SquareMenu } from "lucide-react";
 import Link from "next/link";
 
 const navItems = [
@@ -37,31 +37,30 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 bg-opacity-90 backdrop-blur-lg border-b shadow-sm">
-      <div className="container flex justify-between items-center w-full">
-        <h1 className='font-bold text-red-600 text-4xl py-8'>3DTEAM</h1>
+    <nav className="bg-customBlue sticky top-0 z-50 bg-opacity-90 backdrop-blur-lg shadow-lg">
+      <div className="container">
         <ul className="hidden md:flex items-center">
           {navItems.map((item) => (
             <li key={item.label} className="relative group">
               <Link
                 href={item.link}
-                className="flex items-center hover:text-red-400 transition mr-8 py-10 font-medium"
+                className="flex items-center hover:text-customOrange text-white transition py-5 mr-10 font-medium uppercase"
               >
                 {item.label}
                 {item.children && (
                   <ChevronDown
-                    className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180 group-hover:text-red-400"
+                    className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180 group-hover:customOrange"
                   />
                 )}
               </Link>
 
               {item.children && (
-                <ul className="absolute left-0 hidden group-hover:block bg-white border shadow-lg w-40">
+                <ul className="absolute left-0 hidden group-hover:block bg-customBlue shadow-lg w-48">
                   {item.children.map((child) => (
-                    <li key={child.label} className="px-4 py-2 hover:bg-red-500 border-b">
+                    <li key={child.label} className="px-4 py-2">
                       <Link
                         href={child.link}
-                        className="block hover:text-white font-medium"
+                        className="block hover:text-red-400 text-white font-medium"
                       >
                         {child.label}
                       </Link>
@@ -72,16 +71,6 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="flex justify-between items-center gap-5">
-          <ShoppingBag className='h-7 w-7' />
-          <Button className='shrink-0 md:hidden border-black bg-transparent'
-            variant={'outline'}
-            size='icon'
-          >
-            <MenuIcon className='h-5 w-5' />
-          </Button>
-        </div>
-
       </div>
     </nav>
   );
