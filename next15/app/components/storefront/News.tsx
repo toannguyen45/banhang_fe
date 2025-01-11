@@ -8,7 +8,8 @@ type Props = {};
 const News: FC<Props> = (props) => {
     return (
         <section className="flex flex-col gap-4 items-center py-24">
-            <p className="mb-5 text-4xl">Tin tức</p>
+            <p className="text-4xl font-bold">Tin tức</p>
+            <div className="w-28 border-b-2 border-gray-400 mb-5"></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                 <div className="bg-white w-full hover:shadow-xl transition-shadow duration-500">
                     <div className="relative overflow-hidden h-64 group">
@@ -32,7 +33,7 @@ const News: FC<Props> = (props) => {
                             href={'/news'}
                             className="font-medium flex items-center gap-1 hover:text-red-400 group"
                         >
-                            <span>Xem thêm</span>
+                            <span className='font-semibold'>Xem thêm</span>
                             <ArrowUpRight className="transition-transform duration-300 group-hover:rotate-45" />
                         </Link>
                     </div>
@@ -59,7 +60,7 @@ const News: FC<Props> = (props) => {
                             href={'/news'}
                             className="font-medium flex items-center gap-1 hover:text-red-400 group"
                         >
-                            <span>Xem thêm</span>
+                            <span className='font-semibold'>Xem thêm</span>
                             <ArrowUpRight className="transition-transform duration-300 group-hover:rotate-45" />
                         </Link>
                     </div>
@@ -85,7 +86,7 @@ const News: FC<Props> = (props) => {
                             href={'/news'}
                             className="font-medium flex items-center gap-1 hover:text-red-400 group"
                         >
-                            <span>Xem thêm</span>
+                            <span className='font-semibold'>Xem thêm</span>
                             <ArrowUpRight className="transition-transform duration-300 group-hover:rotate-45" />
                         </Link>
                     </div>

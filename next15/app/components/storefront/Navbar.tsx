@@ -4,34 +4,38 @@ import React from 'react';
 
 const navItems = [
   {
-    label: "Home",
+    label: "Trang chủ",
     link: "/",
   },
   {
-    label: "Shop",
-    link: "/shop",
+    label: "Giới thiệu",
+    link: "/about",
+  },
+  {
+    label: "Dịch vụ",
+    link: "/services",
+  },
+  {
+    label: "Sản phẩm",
+    link: "/products",
     children: [
       {
-        label: "Men",
-        link: "/shop/men",
+        label: "Máy in",
+        link: "/products/print",
       },
       {
-        label: "Women",
-        link: "/shop/women",
+        label: "Máy scan",
+        link: "/products/scan",
       },
     ],
   },
   {
-    label: "About",
-    link: "/about",
+    label: "Tin tức",
+    link: "/blogs",
   },
   {
-    label: "Contact",
+    label: "Liên hệ",
     link: "/contact",
-  },
-  {
-    label: "News",
-    link: "/news",
   },
 ];
 
@@ -39,12 +43,12 @@ export default function Navbar() {
   return (
     <nav className="bg-customBlue sticky top-0 z-50 bg-opacity-90 backdrop-blur-lg shadow-lg">
       <div className="container">
-        <ul className="hidden md:flex items-center py-2">
+        <ul className="hidden md:flex items-center">
           {navItems.map((item) => (
             <li key={item.label} className="relative group">
               <Link
                 href={item.link}
-                className="flex items-center hover:text-customOrange text-white transition py-2 mr-10 font-medium uppercase"
+                className="flex items-center hover:text-customOrange text-white transition py-5 mr-10 font-medium uppercase"
               >
                 {item.label}
                 {item.children && (
