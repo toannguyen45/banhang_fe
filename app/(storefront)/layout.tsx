@@ -2,7 +2,6 @@ import Footer from '@/app/components/storefront/Footer';
 import Header from '@/app/components/storefront/Header';
 import HeaderMid from '@/app/components/storefront/HeaderMid';
 import Navbar from '@/app/components/storefront/Navbar';
-import { Toaster } from '@/components/ui/toaster';
 import React, { ReactNode } from 'react';
 
 const StoreFrontLayout = ({
@@ -21,7 +20,6 @@ const StoreFrontLayout = ({
                 </div>
             </main>
             <Footer />
-            <Toaster />
         </div>
     );
 };

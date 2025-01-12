@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.css";
 import AuthProvider from "@/app/components/dashboard/AuthProvider";
-import { Toaster } from "@/components/ui/toaster";
 import App from "@/app/App";
 
 const quickSand = localFont({
@@ -49,7 +48,7 @@ export default function RootLayout({
             {children}
           </App>
         </AuthProvider>
-        <Toaster />
+        {/* <Toaster /> */}
       </body>
     </html>
   );
