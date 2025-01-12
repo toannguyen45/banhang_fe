@@ -1,9 +1,8 @@
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { DollarSign, PartyPopper, ShoppingBag, User2 } from 'lucide-react'
-import React from 'react'
 
-const Dashboard = () => {
+const Dashboard= () => {
     return (
         <>
             <div className='grid  gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4'>
