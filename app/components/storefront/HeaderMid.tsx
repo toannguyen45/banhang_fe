@@ -49,7 +49,7 @@ const HeaderMid = () => {
                             <SheetHeader>
                                 <SheetTitle>Giỏ hàng</SheetTitle>
                                 <SheetDescription>
-                                    Make changes to your profile here. Click save when you're done.
+                                    Make changes to your profile here. Click save when done.
                                 </SheetDescription>
                             </SheetHeader>
                             <SheetFooter>

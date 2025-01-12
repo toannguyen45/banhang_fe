@@ -1,11 +1,9 @@
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC } from 'react';
+import React from 'react';
 
-type Props = {};
-
-const News: FC<Props> = (props) => {
+const News = () => {
     return (
         <section className="flex flex-col gap-4 items-center py-24">
             <p className="text-4xl font-bold">Tin tức</p>

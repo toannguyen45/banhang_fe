@@ -2,9 +2,7 @@ import { Button } from '@/components/ui/button'
 import { signIn } from 'next-auth/react'
 import React from 'react'
 
-type Props = {}
-
-const Login = (props: Props) => {
+const Login = () => {
   return (
     <div className='min-h-screen grid place-items-center'>
       <Button variant="default" className="" onClick={() => signIn('google')}>

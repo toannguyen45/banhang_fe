@@ -1,3 +1,3 @@
-export async function GET(req: Request, res: Response) {
+export async function GET() {
     console.log('álo')
 }
