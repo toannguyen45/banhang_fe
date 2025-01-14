@@ -1,26 +1,23 @@
-'use client'
-
 import DashboardNavigation from '@/app/components/dashboard/DashboardNavigation'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { CircleUser, MenuIcon } from 'lucide-react'
 import React, { ReactNode } from 'react'
-import { useAppSelector } from '@/redux/hooks'
-import { signOut, useSession } from 'next-auth/react'
-import Loader from '@/app/components/dashboard/Loader'
-import Login from '@/app/components/dashboard/Login'
-const DashboardLayout = ({ children }: { children: ReactNode }) => {
-    const isLoading = useAppSelector((store) => store.loadingReducer)
-    const { data: session } = useSession()
+import { auth } from '@/lib/auth'
+import { redirect } from 'next/navigation'
+import { handleSignOut } from '@/app/actions/authActions'
 
-    if (!session?.user) {
-        return <Login />
+const DashboardLayout = async ({ children }: { children: ReactNode }) => {
+    const session = await auth()
+
+    if (!session) {
+        redirect('/admin/signin')
     }
 
     return (
-        <div className='flex w-full flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-            <header className='sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-white'>
+        <div className='flex w-full max-h-screen flex-col mx-auto'>
+            <header className='sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-white px-6'>
                 <nav className='hidden font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6'>
                     <DashboardNavigation />
                 </nav>
@@ -53,16 +50,15 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
                             My Account
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem onClick={() => signOut()}>
+                        <DropdownMenuItem onClick={handleSignOut}>
                             Logout
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </header>
-            <main className='my-5'>
+            <main className='p-6'>
                 {children}
             </main>
-            {isLoading && <Loader />}
         </div>
     )
 }

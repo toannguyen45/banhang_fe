@@ -9,6 +9,7 @@ export default {
 		"./redux/**/*.{js,ts,jsx,tsx,mdx}",
 		"./hook/**/*.{js,ts,jsx,tsx,mdx}",
 		"./lib/**/*.{js,ts,jsx,tsx,mdx}",
+		"./types/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	theme: {
 		extend: {

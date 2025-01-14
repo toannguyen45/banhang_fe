@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import "./globals.css";
-import AuthProvider from "@/app/components/dashboard/AuthProvider";
 import App from "@/app/App";
 
 const quickSand = localFont({
@@ -43,11 +42,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${quickSand.className}`} suppressHydrationWarning>
-        <AuthProvider>
           <App>
             {children}
           </App>
-        </AuthProvider>
         {/* <Toaster /> */}
       </body>
     </html>

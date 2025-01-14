@@ -23,7 +23,6 @@ const App: FC<Props> = ({ children }) => {
             </Provider>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
-
     )
 }
 
