@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from 'react'
+// import { useState } from 'react'
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
@@ -28,9 +28,8 @@ const Orders = () => {
         console.log(values)
     }
 
-    const [open, setOpen] = useState(false)
-    const [loading, setLoading]  = useState(false)
-
+    // const [open, setOpen] = useState(false)
+    // const [loading, setLoading]  = useState(false)
 
     return (
         <div>

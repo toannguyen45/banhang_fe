@@ -1,7 +1,7 @@
-import prisma from "@/lib/db";
-import { NextResponse } from "next/server";
+// import prisma from "@/lib/db";
+// import { NextResponse } from "next/server";
 // import { getServerSession } from "next-auth"
-import { NextApiRequest, NextApiResponse } from "next";
+// import { NextApiRequest, NextApiResponse } from "next";
 
 // export async function POST(request: Request) {
 //     const { email, name, profileImage } = await request.json();
