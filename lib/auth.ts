@@ -3,6 +3,7 @@ import Google from "next-auth/providers/google"
 import Credentials from "next-auth/providers/credentials";
 import db from "@/lib/db";
 import { signInSchema } from "@/lib/zod";
+import bcrypt from "bcrypt";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [Google,
@@ -21,10 +22,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     },
                 });
 
-                if (!user) {
+                if (!user || !user.password) {
                     throw new Error("Invalid credentials.");
                 }
 
+                const isPasswordValid = await bcrypt.compare(validatedCredentials.password, user.password);
+
+                if (!isPasswordValid) {
+                    throw new Error("Invalid credentials.");
+                }
+            
                 return {
                     id: user.id,
                     email: user.email,
