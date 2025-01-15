@@ -1,3 +1,5 @@
+import db from "@/lib/db";
+
 export const navItems = [
     {
         label: "Trang chủ",
@@ -34,3 +36,17 @@ export const navItems = [
         link: "/contact",
     },
 ];
+
+export const getUserByEmail = async (email: string) => {
+    try {
+        const user = await db.user.findUnique({
+            where: {
+                email,
+            },
+        })
+
+        return user
+    } catch {
+
+    }
+}

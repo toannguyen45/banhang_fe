@@ -16,9 +16,8 @@ export async function handleCredentialsSignin({ email, password }: {
     password: string
 }) {
     try {
-        await signIn("credentials", { email, password, redirectTo: "/dashboard" });
+        await signIn("credentials", { email, password, redirectTo: "/" });
     } catch (error) {
-        console.log('loi  ne', error)
         if (error instanceof AuthError) {
             switch (error.type) {
                 case 'CredentialsSignin':
