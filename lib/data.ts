@@ -39,9 +39,9 @@ export const navItems = [
 
 export const getUserByEmail = async (email: string) => {
     try {
-        const user = await db.user.findUnique({
+        const user = await db.user.findFirst({
             where: {
-                email, // This should work since email is unique
+                email,
             },
         });
 
