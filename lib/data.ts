@@ -41,12 +41,13 @@ export const getUserByEmail = async (email: string) => {
     try {
         const user = await db.user.findUnique({
             where: {
-                email,
+                email, // This should work since email is unique
             },
-        })
+        });
 
-        return user
-    } catch {
-
+        return user;
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        throw error;
     }
-}
+};
