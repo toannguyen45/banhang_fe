@@ -1,3 +1,4 @@
+import FloatingButtons from '@/app/components/storefront/FloatingButtons';
 import Footer from '@/app/components/storefront/Footer';
 import Header from '@/app/components/storefront/Header';
 import HeaderMid from '@/app/components/storefront/HeaderMid';
@@ -17,6 +18,7 @@ const StoreFrontLayout = ({
             <main className="bg-white flex-grow w-full">
                 {children}
             </main>
+            <FloatingButtons />
             <Footer />
         </div>
     );

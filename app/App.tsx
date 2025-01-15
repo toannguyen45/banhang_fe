@@ -7,7 +7,7 @@ import {
     QueryClient,
     QueryClientProvider,
 } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 type Props = {
     children: ReactNode
@@ -21,7 +21,7 @@ const App: FC<Props> = ({ children }) => {
             <Provider store={store}>
                 {children}
             </Provider>
-            <ReactQueryDevtools initialIsOpen={false} />
+            {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         </QueryClientProvider>
     )
 }
