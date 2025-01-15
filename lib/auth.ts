@@ -3,7 +3,7 @@ import Google from "next-auth/providers/google"
 import Credentials from "next-auth/providers/credentials";
 import db from "@/lib/db";
 import { signInSchema } from "@/lib/zod";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs"; 
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [Google,
