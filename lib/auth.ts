@@ -3,7 +3,7 @@ import Google from "next-auth/providers/google"
 import Credentials from "next-auth/providers/credentials";
 import db from "@/lib/db";
 import { signInSchema } from "@/lib/zod";
-import bcrypt from "bcryptjs"; 
+import bcrypt from "bcryptjs";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [Google,
@@ -18,7 +18,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 const user = await db.user.findFirst({
                     where: {
                         email: validatedCredentials.email,
-                        password: validatedCredentials.password,
                     },
                 });
 
@@ -31,7 +30,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 if (!isPasswordValid) {
                     throw new Error("Invalid credentials.");
                 }
-            
+
                 return {
                     id: user.id,
                     email: user.email,
