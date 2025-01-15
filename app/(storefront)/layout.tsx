@@ -15,9 +15,7 @@ const StoreFrontLayout = ({
             <HeaderMid />
             <Navbar />
             <main className="bg-white flex-grow w-full">
-                <div className='container mx-auto px-4'>
-                    {children}
-                </div>
+                {children}
             </main>
             <Footer />
         </div>
