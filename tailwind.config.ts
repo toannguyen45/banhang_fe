@@ -16,6 +16,7 @@ export default {
 			colors: {
 				customBlue: '#051242',
 				customOrange: '#FF7E20',
+				customSlate: '#F5F6F6',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {

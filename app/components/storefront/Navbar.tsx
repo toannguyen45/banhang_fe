@@ -1,18 +1,22 @@
+import CartButton from '@/app/components/storefront/CartButton';
+import ToggleMobile from '@/app/components/storefront/ToggleMobile';
 import { navItems } from '@/lib/data';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
+
 export default function Navbar() {
   return (
     <nav className="bg-customBlue sticky top-0 z-50 bg-opacity-90 backdrop-blur-lg shadow-lg">
-      <div className="container">
-        <ul className="hidden md:flex items-center">
+      <div className="container flex justify-between">
+        <ToggleMobile />
+        <ul className="hidden lg:flex items-center">
           {navItems.map((item) => (
             <li key={item.label} className="relative group">
               <Link
                 href={item.link}
-                className="flex items-center hover:text-customOrange text-white transition py-5 mr-10 font-medium uppercase"
+                className="flex items-center hover:text-customOrange text-white text-lg transition py-5 mr-10 font-medium uppercase"
               >
                 {item.label}
                 {item.children && (
@@ -39,6 +43,7 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+        <CartButton />
       </div>
     </nav>
   );

@@ -10,7 +10,7 @@ const NavbarMobile = () => {
                 <li key={item.label} className="relative group">
                     <Link
                         href={item.link}
-                        className="flex items-center hover:text-customOrange transition py-5 mr-10 font-medium uppercase"
+                        className="flex items-center hover:text-customOrange transition py-5 mr-10 font-bold uppercase border-b"
                     >
                         {item.label}
                         {item.children && (

@@ -1,8 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ArrowUp, Phone, MessageCircle, X } from 'lucide-react'
+import { ArrowUp, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { GrContact } from "react-icons/gr";
+import { SiZalo } from "react-icons/si";
 
 const FloatingButtons = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -26,12 +28,12 @@ const FloatingButtons = () => {
             {/* Back to Top Button */}
             <Button
                 variant="default"
-                size="icon"
+                size="sm"
                 className={`rounded-full bg-customBlue hover:bg-slate-500 transition-all duration-300 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                     } ${isOpen ? 'mb-36' : 'mb-3'}`}
                 onClick={scrollToTop}
             >
-                <ArrowUp className="h-5 w-5" />
+                <ArrowUp className="h-7 w-7" />
             </Button>
 
             {/* Contact Buttons Group */}
@@ -43,32 +45,32 @@ const FloatingButtons = () => {
                     {/* Phone Button */}
                     <Button
                         variant="default"
-                        size="icon"
+                        size="sm"
                         className="rounded-full bg-red-500 hover:bg-red-600"
                         onClick={() => (window.location.href = 'tel:+1234567890')}
                     >
-                        <Phone className="h-5 w-5" />
+                        <Phone className="h-7 w-7" />
                     </Button>
 
-                    {/* Chat Button */}
+                    {/* Zalo Button */}
                     <Button
                         variant="default"
-                        size="icon"
+                        size="sm"
                         className="rounded-full bg-blue-500 hover:bg-blue-600"
                         onClick={() => window.open('https://example.com/chat', '_blank')}
                     >
-                        <MessageCircle className="h-5 w-5" />
+                        <SiZalo className="h-7 w-7" />
                     </Button>
 
                     {/* Facebook Messenger Button */}
                     <Button
                         variant="default"
-                        size="icon"
+                        size="sm"
                         className="rounded-full bg-[#0099FF] hover:bg-[#0088FF]"
                         onClick={() => window.open('https://m.me/yourpage', '_blank')}
                     >
                         <svg
-                            className="h-5 w-5"
+                            className="h-7 w-7"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
@@ -81,12 +83,11 @@ const FloatingButtons = () => {
                 {/* Toggle Button */}
                 <Button
                     variant="default"
-                    size="icon"
-                    className={`rounded-full bg-orange-500 hover:bg-orange-600 transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'
-                        }`}
+                    size="sm"
+                    className={`rounded-full bg-orange-500 hover:bg-orange-600 transition-transform duration-300`}
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    <X className="h-5 w-5" />
+                    <GrContact className="h-7 w-7" />
                 </Button>
             </div>
         </div>
