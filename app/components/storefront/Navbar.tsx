@@ -8,7 +8,7 @@ import React from 'react';
 
 export default function Navbar() {
   return (
-    <nav className="bg-customBlue sticky top-0 z-50 bg-opacity-90 backdrop-blur-lg shadow-lg">
+    <nav className="bg-black sticky top-0 z-50 shadow-2xl">
       <div className="container flex justify-between">
         <ToggleMobile />
         <ul className="hidden lg:flex items-center">
@@ -16,7 +16,7 @@ export default function Navbar() {
             <li key={item.label} className="relative group">
               <Link
                 href={item.link}
-                className="flex items-center hover:text-customOrange text-white text-lg transition py-5 mr-10 font-medium uppercase"
+                className="flex items-center hover:text-customOrange text-white text-lg transition py-4 mr-10 font-medium uppercase"
               >
                 {item.label}
                 {item.children && (
@@ -27,7 +27,7 @@ export default function Navbar() {
               </Link>
 
               {item.children && (
-                <ul className="absolute left-0 hidden group-hover:block bg-customBlue shadow-lg w-48">
+                <ul className="absolute left-0 hidden group-hover:block bg-black shadow-lg w-48">
                   {item.children.map((child) => (
                     <li key={child.label} className="px-4 py-2">
                       <Link

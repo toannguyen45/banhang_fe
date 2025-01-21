@@ -10,13 +10,13 @@ const Header = () => {
         <div className='flex items-center border-l'>
           <div className='flex items-center gap-2 border-r p-3'>
             <IoIosMail className='text-red-600'/>
-            <Link href='mailto:email@example.com' className='hover:text-customBlue text-sm text-red-600'>
+            <Link href='mailto:email@example.com' className='text-sm text-red-600'>
               email@example.com
             </Link>
           </div>
           <div className='flex items-center gap-2 border-r p-3'>
             <FaPhoneAlt className='text-red-600' />
-            <Link href='tel:+123456789' className='hover:text-customBlue text-sm text-red-600'>
+            <Link href='tel:+123456789' className='text-sm text-red-600'>
               +123 456 789
             </Link>
           </div>

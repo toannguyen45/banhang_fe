@@ -8,12 +8,12 @@ import { Button } from '@/components/ui/button'
 const slides = [
     {
         id: 1,
-        image: "/images/slide_3_img.webp",
+        image: "/images/slide1.jpg",
         alt: "Sale up to 80% off"
     },
     {
-        id: 2,
-        image: "/images/slide_1_img.webp",
+        id: 3,
+        image: "/images/slide3.png",
         alt: "Sale up to 10% off"
     },
 ]
@@ -53,6 +53,7 @@ const HeroSlider = () => {
                         className={`object-cover transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
                             }`}
                         priority={index === 0}
+                        quality={100}
                     />
                 ))}
             </div>

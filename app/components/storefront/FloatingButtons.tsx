@@ -25,48 +25,43 @@ const FloatingButtons = () => {
 
     return (
         <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
-            {/* Back to Top Button */}
             <Button
                 variant="default"
-                size="sm"
-                className={`rounded-full bg-customBlue hover:bg-slate-500 transition-all duration-300 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                size="icon"
+                className={`rounded-full bg-white hover:bg-black shadow-xl transition-all duration-300 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                     } ${isOpen ? 'mb-36' : 'mb-3'}`}
                 onClick={scrollToTop}
             >
-                <ArrowUp className="h-7 w-7" />
+                <ArrowUp className="h-7 w-7 text-red-500" />
             </Button>
 
-            {/* Contact Buttons Group */}
             <div className="relative">
                 <div
                     className={`absolute bottom-12 right-0 flex flex-col items-end gap-2 transition-all duration-300 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
                         }`}
                 >
-                    {/* Phone Button */}
                     <Button
                         variant="default"
-                        size="sm"
-                        className="rounded-full bg-red-500 hover:bg-red-600"
+                        size="icon"
+                        className="rounded-full shadow-xl bg-red-500 hover:bg-red-600"
                         onClick={() => (window.location.href = 'tel:+1234567890')}
                     >
                         <Phone className="h-7 w-7" />
                     </Button>
 
-                    {/* Zalo Button */}
                     <Button
                         variant="default"
-                        size="sm"
-                        className="rounded-full bg-blue-500 hover:bg-blue-600"
+                        size="icon"
+                        className="rounded-full shadow-xl bg-blue-500 hover:bg-blue-600"
                         onClick={() => window.open('https://example.com/chat', '_blank')}
                     >
                         <SiZalo className="h-7 w-7" />
                     </Button>
 
-                    {/* Facebook Messenger Button */}
                     <Button
                         variant="default"
-                        size="sm"
-                        className="rounded-full bg-[#0099FF] hover:bg-[#0088FF]"
+                        size="icon"
+                        className="rounded-full shadow-xl bg-[#0099FF] hover:bg-[#0088FF]"
                         onClick={() => window.open('https://m.me/yourpage', '_blank')}
                     >
                         <svg
@@ -80,11 +75,10 @@ const FloatingButtons = () => {
                     </Button>
                 </div>
 
-                {/* Toggle Button */}
                 <Button
                     variant="default"
-                    size="sm"
-                    className={`rounded-full bg-orange-500 hover:bg-orange-600 transition-transform duration-300`}
+                    size="icon"
+                    className={`rounded-full bg-orange-500 hover:bg-red-600 transition-transform duration-300 shadow-xl`}
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     <GrContact className="h-7 w-7" />

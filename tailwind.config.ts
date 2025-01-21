@@ -14,9 +14,10 @@ export default {
 	theme: {
 		extend: {
 			colors: {
+				textSmall: '#646464',
 				customBlue: '#051242',
 				customOrange: '#FF7E20',
-				customSlate: '#F5F6F6',
+				customSlate: '#F5F2EF',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
@@ -72,7 +73,7 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
-			}
+			},
 		},
 	},
 	// eslint-disable-next-line @typescript-eslint/no-require-imports

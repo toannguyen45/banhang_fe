@@ -8,7 +8,7 @@ const HeaderMid = () => {
         <div className='bg-white border-b md:static md:border-none md:bg-transparent md:shadow-none'>
             <div className='container flex items-center justify-between'>
                 <div className='flex items-center justify-center flex-grow lg:flex-grow-0'>
-                    <Link href='/home' className='flex items-center gap-1 text-3xl font-bold py-14'>
+                    <Link href='/home' className='flex items-center gap-1 text-3xl font-bold py-7'>
                         <Puzzle className='h-10 w-10' />
                         <span>3DTeam</span>
                     </Link>
