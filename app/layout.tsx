@@ -1,32 +1,33 @@
 import type { Metadata } from "next";
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 import "./globals.css";
 import App from "@/app/App";
+import { ToasterProvider } from "@/providers/toast-provider";
 
 const quickSand = localFont({
   src: [
     {
-      path: './fonts/Quicksand-Light.ttf',
-      weight: '300',
+      path: "./fonts/Quicksand-Light.ttf",
+      weight: "300",
     },
     {
-      path: './fonts/Quicksand-Regular.ttf',
-      weight: '400',
+      path: "./fonts/Quicksand-Regular.ttf",
+      weight: "400",
     },
     {
-      path: './fonts/Quicksand-Medium.ttf',
-      weight: '500',
+      path: "./fonts/Quicksand-Medium.ttf",
+      weight: "500",
     },
     {
-      path: './fonts/Quicksand-SemiBold.ttf',
-      weight: '600',
+      path: "./fonts/Quicksand-SemiBold.ttf",
+      weight: "600",
     },
     {
-      path: './fonts/Quicksand-Bold.ttf',
-      weight: '700',
+      path: "./fonts/Quicksand-Bold.ttf",
+      weight: "700",
     },
   ],
-})
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -40,12 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${quickSand.className}`} suppressHydrationWarning>
-          <App>
-            {children}
-          </App>
-        {/* <Toaster /> */}
+      <body className={`${quickSand.className}`} suppressHydrationWarning>
+        <App>{children}</App>
+        <ToasterProvider />
       </body>
     </html>
   );

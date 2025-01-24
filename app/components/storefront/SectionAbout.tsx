@@ -1,63 +1,75 @@
-import { CheckCircle } from "lucide-react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+
+const features = [
+  "Công nghệ quét 3D tiên tiến nhất",
+  "Đội ngũ kỹ thuật viên giàu kinh nghiệm",
+  "Giải pháp tùy chỉnh cho từng ngành",
+  "Hỗ trợ kỹ thuật 24/7",
+];
 
 const SectionAbout = () => {
   return (
-    <section className="container py-12 md:py-24">
-      <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-        <div className="flex justify-center lg:justify-start">
+    <section className="container py-16 md:py-24">
+      {/* Section Header */}
+      <div className="max-w-2xl mx-auto text-center mb-12">
+        <h2 className="text-3xl font-bold mb-2">VỀ CHÚNG TÔI</h2>
+        <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+        <p className="text-lg text-gray-600">
+          Chúng tôi là đơn vị tiên phong trong lĩnh vực công nghệ quét 3D tại
+          Việt Nam
+        </p>
+      </div>
+
+      {/* Main Content */}
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Left Column - Image */}
+        <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
           <Image
-            src={"/images/about-image.png"}
-            alt="Team collaboration illustration"
-            width={900}
-            height={900}
-            className="object-contain"
-            priority
+            src="/images/about-image.png"
+            alt="About 3DTeam"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw" // Full width on mobile, half on desktop
+            quality={85}
           />
         </div>
-        <div className="flex flex-col gap-4">
-          <span className="text-red-600 text-xl font-medium">
-            Bạn đang tìm kiếm điều gì?
-          </span>
-          <h2 className="text-3xl font-semibold">ĐÔI ĐIỀU VỀ CHÚNG TÔI</h2>
-          <p className="text-gray-500 font-medium">
-            Repudiandae dicta aut ullam. Est dolor in. Sint a libero sint
-            dolores a libero sint dolores a libero sint dolores natus quibusdam.
-          </p>
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <span>Corrupti nihil nesciunt saepe quos ut quasi.</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <span>Itaque non soluta dolor magnam vel dolorem.</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <span>
-                Nam dolores rerum eos adipisci. Nisi voluptatem enim et et non.
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <span>
-                Quasi sapiente dicta beatae est maxime veritatis minima quasi.
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <span>Sapiente beatae vitae eius quo odit.</span>
-            </div>
+
+        {/* Right Column - Content */}
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-2xl font-bold mb-4">
+              Giải pháp quét 3D toàn diện cho doanh nghiệp của bạn
+            </h3>
+            <p className="text-gray-600 mb-6">
+              3DTeam cung cấp giải pháp toàn diện từ tư vấn, triển khai đến hỗ
+              trợ kỹ thuật. Với đội ngũ kỹ sư giàu kinh nghiệm và trang thiết bị
+              hiện đại, chúng tôi cam kết mang đến những sản phẩm chất lượng cao
+              nhất cho khách hàng.
+            </p>
           </div>
-          <div className="flex">
-            <Link
-              href={"/about"}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3"
-            >
-              Xem thêm
+
+          {/* Features List */}
+          <div className="grid sm:grid-cols-2 gap-4">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg"
+              >
+                <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-gray-700">{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="pt-4">
+            <Link href="/about">
+              <Button className="bg-primary hover:bg-primary/90">
+                Tìm hiểu thêm <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </Link>
           </div>
         </div>

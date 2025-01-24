@@ -1,110 +1,112 @@
 import { ArrowUpRight, CalendarDays } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
+interface NewsItem {
+  id: number;
+  image: string;
+  date: string;
+  title: string;
+  author: string;
+  excerpt: string;
+  slug: string;
+}
+
+const newsItems: NewsItem[] = [
+  {
+    id: 1,
+    image: "/images/news-1.jpg",
+    date: "May 03, 2020",
+    title: "Why is a ticket to Lagos so expensive?",
+    author: "admin",
+    excerpt: "Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud exercitation laboris.",
+    slug: "why-is-a-ticket-to-lagos-so-expensive"
+  },
+  {
+    id: 2,
+    image: "/images/news-2.jpg",
+    date: "May 03, 2020",
+    title: "Máy quét 3D màu giá rẻ ScanTech iReal 2E",
+    author: "admin",
+    excerpt: "Máy quét 3D màu giá rẻ ScanTech iReal 2E là một máy quét 3D màu di động được phát triển đặc biệt để chụp các vật thể có kích thước trung bình",
+    slug: "may-quet-3d-mau-gia-re-scantech"
+  },
+  {
+    id: 3,
+    image: "/images/news-3.jpg",
+    date: "May 03, 2020",
+    title: "Máy Scan 3D công nghiệp Scantech Simscan chính hãng",
+    author: "admin",
+    excerpt: "SIMSCAN, một máy quét 3D cầm tay có kích thước bằng lòng bàn tay, được thiết kế đặc biệt để quét 3D các khu",
+    slug: "may-scan-3d-cong-nghiep-scantech"
+  }
+];
+
+const NewsCard = ({ item }: { item: NewsItem }) => (
+  <article className="bg-white border rounded-lg transition-all duration-300 hover:shadow-lg">
+    <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg">
+      <Image
+        src={item.image}
+        alt={item.title}
+        fill
+        className="object-cover transition-transform duration-500 hover:scale-105"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        quality={85}
+        loading="lazy"
+      />
+    </div>
+    <div className="p-6">
+      <div className="flex items-center gap-2 text-gray-600 mb-3">
+        <CalendarDays className="h-4 w-4" aria-hidden="true" />
+        <time dateTime={item.date} className="text-sm">
+          {item.date}
+        </time>
+        <span className="text-gray-400">•</span>
+        <span className="text-sm">By {item.author}</span>
+      </div>
+      <h3 className="font-bold text-xl mb-3 line-clamp-2 text-gray-900">
+        {item.title}
+      </h3>
+      <p className="text-gray-600 mb-4 line-clamp-2">
+        {item.excerpt}
+      </p>
+      <Link
+        href={`/news/${item.slug}`}
+        className="inline-flex items-center text-primary hover:text-primary/80 font-medium 
+          transition-colors group"
+        aria-label={`Read more about ${item.title}`}
+      >
+        <span>Xem thêm</span>
+        <ArrowUpRight 
+          className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5 
+            group-hover:-translate-y-0.5" 
+          aria-hidden="true"
+        />
+      </Link>
+    </div>
+  </article>
+);
 
 const News = () => {
   return (
-    <section className="container flex flex-col gap-4 items-center py-24">
-      <p className="text-3xl font-semibold">TIN TỨC</p>
-      <div className="w-28 border-b-2 border-gray-400 mb-5"></div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-        <div className="bg-white w-full hover:shadow-xl transition-shadow duration-500 border">
-          <div className="relative overflow-hidden h-64 group">
-            <Image
-              src={"/images/news-1.jpg"}
-              alt="news"
-              fill
-              quality={100}
-              loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-110"
-            />
-          </div>
-          <div className="flex flex-col gap-3 p-6">
-            <span className="font-semibold flex items-center">
-              <CalendarDays className="mr-1" /> May 03, 2020
-            </span>
-            <h3 className="font-bold text-xl">
-              Why is a ticket to Lagos so expensive?
-            </h3>
-            <span className="font-semibold text-textSmall">By admin</span>
-            <p className="text-textSmall text-sm font-medium">
-              Tempor incididunt labore dolore magna aliqua. enim minim veniam
-              quis nostrud exercitation laboris.
-            </p>
-            <Link
-              href={"/news"}
-              className="font-medium flex items-center gap-1 hover:text-red-400 group"
-            >
-              <span className="font-bold">Xem thêm</span>
-              <ArrowUpRight className="transition-transform duration-300 group-hover:rotate-45" />
-            </Link>
-          </div>
-        </div>
-        <div className="bg-white w-full hover:shadow-xl transition-shadow duration-500 border">
-          <div className="relative overflow-hidden h-64 group">
-            <Image
-              src={"/images/news-2.jpg"}
-              alt="news"
-              fill
-              quality={100}
-              loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-110"
-            />
-          </div>
-          <div className="flex flex-col gap-3 p-6">
-            <span className="font-semibold flex items-center">
-              <CalendarDays className="mr-1" /> May 03, 2020
-            </span>
-            <h3 className="font-bold text-xl">
-              Máy quét 3D màu giá rẻ ScanTech iReal 2E
-            </h3>
-            <span className="font-semibold text-textSmall">By admin</span>
-            <p className="text-textSmall text-sm font-medium">
-              Máy quét 3D màu giá rẻ ScanTech iReal 2E là một máy quét 3D màu di
-              động được phát triển đặc biệt để chụp các vật thể có kích thước
-              trung bình
-            </p>
-            <Link
-              href={"/news"}
-              className="font-medium flex items-center gap-1 hover:text-red-400 group"
-            >
-              <span className="font-bold">Xem thêm</span>
-              <ArrowUpRight className="transition-transform duration-300 group-hover:rotate-45" />
-            </Link>
-          </div>
-        </div>
-        <div className="bg-white w-full hover:shadow-xl transition-shadow duration-500 border">
-          <div className="relative overflow-hidden h-64 group">
-            <Image
-              src={"/images/news-3.jpg"}
-              alt="news"
-              fill
-              quality={100}
-              className="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-110"
-            />
-          </div>
-          <div className="flex flex-col gap-3 p-6">
-            <span className="font-semibold flex items-center">
-              <CalendarDays className="mr-1" /> May 03, 2020
-            </span>
-            <h3 className="font-bold text-xl">
-              Máy Scan 3D công nghiệp Scantech Simscan chính hãng
-            </h3>
-            <span className="font-semibold text-textSmall">By admin</span>
-            <p className="text-textSmall text-sm font-medium">
-              SIMSCAN, một máy quét 3D cầm tay có kích thước bằng lòng bàn tay,
-              được thiết kế đặc biệt để quét 3D các khu
-            </p>
-            <Link
-              href={"/news"}
-              className="font-medium flex items-center gap-1 hover:text-red-400 group"
-            >
-              <span className="font-bold">Xem thêm</span>
-              <ArrowUpRight className="transition-transform duration-300 group-hover:rotate-45" />
-            </Link>
-          </div>
-        </div>
+    <section className="container py-16 md:py-24" aria-labelledby="news-heading">
+      <div className="max-w-2xl mx-auto text-center mb-12">
+        <h2 
+          id="news-heading" 
+          className="text-3xl font-bold mb-2"
+        >
+          TIN TỨC
+        </h2>
+        <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+        <p className="text-lg text-gray-600">
+          Cập nhật những tin tức mới nhất về công nghệ quét 3D và các dự án của chúng tôi
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {newsItems.map((item) => (
+          <NewsCard key={item.id} item={item} />
+        ))}
       </div>
     </section>
   );

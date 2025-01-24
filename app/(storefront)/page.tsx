@@ -3,18 +3,16 @@ import News from "@/app/components/storefront/News";
 import SectionAbout from "@/app/components/storefront/SectionAbout";
 import React from "react";
 import SectionService from "../components/storefront/SectionService";
-import ContactRow from "../components/storefront/ContactRow";
+import SectionContact from "../components/storefront/SectionContact";
 
 const IndexPage = () => {
   return (
     <>
       <HeroSlider />
-      {/* <div className="container mx-auto px-4"> */}
-        <ContactRow />
-        <SectionAbout />
-        <SectionService />
-        <News />
-      {/* </div> */}
+      <SectionAbout />
+      <SectionService />
+      <SectionContact />
+      <News />
     </>
   );
 };

@@ -10,6 +10,7 @@ export default {
 		"./hook/**/*.{js,ts,jsx,tsx,mdx}",
 		"./lib/**/*.{js,ts,jsx,tsx,mdx}",
 		"./types/**/*.{js,ts,jsx,tsx,mdx}",
+		"./providers/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	theme: {
 		extend: {
@@ -18,6 +19,7 @@ export default {
 				customBlue: '#051242',
 				customOrange: '#FF7E20',
 				customSlate: '#F5F2EF',
+				customBlack: '#222222',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {

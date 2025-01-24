@@ -1,10 +1,18 @@
-import { Mail, MapPin, Phone, Clock } from "lucide-react"
+import { Mail, MapPin, Phone, Clock, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import HeroBanner from "@/app/components/ui/HeroBanner"
+import Link from "next/link"
+import Image from "next/image"
 
-const contactInfo = [
+interface ContactInfo {
+  icon: React.ReactNode
+  title: string
+  content: string
+  link?: string
+}
+
+const contactInfo: ContactInfo[] = [
   {
     icon: <MapPin className="h-6 w-6 text-primary" />,
     title: "Địa chỉ",
@@ -26,24 +34,14 @@ const contactInfo = [
   {
     icon: <Clock className="h-6 w-6 text-primary" />,
     title: "Giờ làm việc",
-    content: "Thứ 2 - Thứ 7: 8:00 - 17:00",
+    content: "Thứ 2 - Thứ 7: 8:00 - 17:00"
   }
 ]
 
-export default function ContactPage() {
+const SectionContact = () => {
   return (
-    <div className="bg-white">
-      <HeroBanner
-        title="Liên Hệ"
-        description="Hãy liên hệ với chúng tôi để được tư vấn giải pháp phù hợp nhất"
-        image="/images/contact-hero.jpg"
-        alt="Contact Us Banner"
-        breadcrumb={[
-          { label: "Liên hệ" }
-        ]}
-      />
-
-      <div className="container py-16 md:py-24">
+    <section className="bg-gray-50 py-16 md:py-24">
+      <div className="container">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
@@ -89,21 +87,21 @@ export default function ContactPage() {
             <form className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="quick-name" className="block text-sm font-medium text-gray-700 mb-1">
                     Họ và tên
                   </label>
                   <Input 
-                    id="name"
+                    id="quick-name"
                     placeholder="Nhập họ và tên"
                     className="w-full"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="quick-email" className="block text-sm font-medium text-gray-700 mb-1">
                     Email
                   </label>
                   <Input 
-                    id="email"
+                    id="quick-email"
                     type="email"
                     placeholder="example@domain.com"
                     className="w-full"
@@ -112,11 +110,11 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="quick-phone" className="block text-sm font-medium text-gray-700 mb-1">
                   Số điện thoại
                 </label>
                 <Input 
-                  id="phone"
+                  id="quick-phone"
                   type="tel"
                   placeholder="Nhập số điện thoại"
                   className="w-full"
@@ -124,11 +122,11 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="quick-message" className="block text-sm font-medium text-gray-700 mb-1">
                   Nội dung
                 </label>
                 <Textarea 
-                  id="message"
+                  id="quick-message"
                   placeholder="Nhập nội dung tin nhắn"
                   className="w-full min-h-[120px]"
                 />
@@ -138,26 +136,14 @@ export default function ContactPage() {
                 type="submit" 
                 className="w-full bg-primary hover:bg-primary/90"
               >
-                Gửi tin nhắn
+                Gửi tin nhắn <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </form>
           </div>
         </div>
-
-        {/* Map */}
-        <div className="mt-12 rounded-lg overflow-hidden h-[400px] shadow-lg">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.6963477727726!2d105.84769731531904!3d21.007025393946367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac428c3336e5%3A0x8d5dd5ec6df5e595!2zSOG7kyBHxrDGoW0sIEhhbm9pLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1645496755651!5m2!1sen!2s"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Location map"
-          />
-        </div>
       </div>
-    </div>
+    </section>
   )
 }
+
+export default SectionContact
