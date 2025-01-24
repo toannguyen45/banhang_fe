@@ -2,10 +2,6 @@ import React from 'react'
 import { 
   Scan, 
   PenTool, 
-  Microscope,
-  MonitorPlay,
-  Building2,
-  Cog,
   CheckCircle2,
   ArrowRight
 } from "lucide-react"

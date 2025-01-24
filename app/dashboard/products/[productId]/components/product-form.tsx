@@ -19,9 +19,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useParams, useRouter } from "next/navigation";
+// import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
-import { useOrigin } from "@/hooks/use-origin";
+// import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "@/components/ui/image-upload";
 import {
   Select,
@@ -63,18 +63,18 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   initialData,
   categories,
 }) => {
-  const params = useParams();
-  const router = useRouter();
-  const origin = useOrigin();
+  // const params = useParams();
+  // const router = useRouter();
+  // const origin = useOrigin();
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const title = initialData ? "Cập nhật sản phẩm" : "Tạo sản phẩm";
   const description = initialData ? "Cập nhật sản phẩm" : "Chi tiết sản phẩm";
-  const toastMessage = initialData
-    ? "Cập nhật sản phẩm thành công"
-    : "Product berhasil dibuat";
+  // const toastMessage = initialData
+  //   ? "Cập nhật sản phẩm thành công"
+  //   : "Product berhasil dibuat";
   const action = initialData ? "Simpan Product" : "Tạo sản phẩm";
 
   const form = useForm<ProductFormValues>({

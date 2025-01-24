@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Minus, Plus, Check, ArrowLeft } from "lucide-react";
@@ -13,7 +13,22 @@ interface ProductImage {
   url: string;
 }
 
-const product = {
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  inStock: boolean;
+  images: ProductImage[];
+  description: string;
+  features: string[];
+  specifications: {
+    name: string;
+    value: string;
+  }[];
+}
+
+const product: Product = {
   id: 1,
   name: "Máy quét 3D SIMSCAN Pro",
   price: 45000000,
@@ -48,8 +63,17 @@ const product = {
 };
 
 const ProductDetailPage = () => {
-  const [selectedImage, setSelectedImage] = useState<ProductImage>(product.images[0]);
-  const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = React.useState<ProductImage>(product.images[0]);
+  const [quantity, setQuantity] = React.useState(1);
+
+  const handleAddToCart = React.useCallback(() => {
+    // Add to cart logic here
+    console.log('Adding to cart:', { product, quantity });
+  }, [quantity]);
+
+  const handleQuantityChange = React.useCallback((newQuantity: number) => {
+    setQuantity(Math.max(1, newQuantity));
+  }, []);
 
   return (
     <div className="bg-gray-50">
@@ -138,20 +162,23 @@ const ProductDetailPage = () => {
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center border rounded-lg">
                         <button
-                          onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                          onClick={() => handleQuantityChange(quantity - 1)}
                           className="p-2 hover:text-primary"
                         >
                           <Minus className="h-4 w-4" />
                         </button>
                         <span className="w-12 text-center">{quantity}</span>
                         <button
-                          onClick={() => setQuantity(quantity + 1)}
+                          onClick={() => handleQuantityChange(quantity + 1)}
                           className="p-2 hover:text-primary"
                         >
                           <Plus className="h-4 w-4" />
                         </button>
                       </div>
-                      <Button className="flex-1">
+                      <Button 
+                        className="flex-1"
+                        onClick={handleAddToCart}
+                      >
                         <ShoppingCart className="h-4 w-4 mr-2" />
                         Thêm vào giỏ hàng
                       </Button>

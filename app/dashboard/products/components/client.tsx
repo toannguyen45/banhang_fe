@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { PlusCircle } from "lucide-react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { ProductColumn, columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 import { ApiList } from "@/components/ui/api-list";
@@ -15,7 +15,7 @@ interface ProductClientProps {
 }
 
 export const ProductClient: React.FC<ProductClientProps> = ({ data }) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <>

@@ -5,7 +5,6 @@ import HeroBanner from "@/app/components/ui/HeroBanner";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   SlidersHorizontal,
   ChevronLeft,
   ChevronRight,
