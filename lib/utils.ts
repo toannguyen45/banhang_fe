@@ -10,3 +10,10 @@ export const formatter = new Intl.NumberFormat("id-ID", {
   style: "currency",
   currency: "IDR",
 });
+
+export const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND'
+  }).format(price)
+}
