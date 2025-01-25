@@ -1,9 +1,8 @@
-import { handleGoogleSignin } from "@/app/actions/authActions";
 import { Button } from "@/components/ui/button";
 
 const GoogleSignIn = () => {
     return (
-        <form className="w-full" action={handleGoogleSignin}
+        <form className="w-full"
         >
             <Button
                 variant="outline"

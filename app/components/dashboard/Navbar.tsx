@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import MainNav from "./MainNav";
 // import UserButton from "./UserButton";
@@ -19,9 +21,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { handleSignOut } from "@/app/actions/authActions";
+import { signOut } from "@/app/actions/authActions";
 
 const Navbar = () => {
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
   return (
     <header className="sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-white p-9">
       <nav className="hidden font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
@@ -54,7 +64,9 @@ const Navbar = () => {
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={handleSignOut}>Logout</DropdownMenuItem>
+          <DropdownMenuItem onClick={handleSignOut}>
+            Logout
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </header>

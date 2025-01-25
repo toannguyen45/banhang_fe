@@ -1,14 +1,13 @@
 import React, { ReactNode } from "react";
-import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Navbar from "../components/dashboard/Navbar";
 
 const DashboardLayout = async ({ children }: { children: ReactNode }) => {
-  const session = await auth();
+  // const session = await auth();
 
-  if (!session) {
-    redirect("/admin/signin");
-  }
+  // if (!session) {
+  //   redirect("/admin/signin");
+  // }
 
   return (
     <>

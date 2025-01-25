@@ -9,11 +9,13 @@ import { useForm } from 'react-hook-form'
 import { signInSchema } from '@/lib/zod'
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { handleCredentialsSignin } from '@/app/actions/authActions'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-
+import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast';
+import { signIn } from '@/app/actions/authActions';
 
 const Login = () => {
+    const router = useRouter();
     const form = useForm<z.infer<typeof signInSchema>>({
         resolver: zodResolver(signInSchema),
         defaultValues: {
@@ -24,12 +26,19 @@ const Login = () => {
 
     const onSubmit = async (values: z.infer<typeof signInSchema>) => {
         try {
-            const result = await handleCredentialsSignin(values);
-            if (result?.message) {
-                console.log(result.message);
+            const result = await signIn(values);
+            
+            if (result.error) {
+                toast.error(result.error);
+                return;
             }
+
+            toast.success("Signed in successfully");
+            router.push('/dashboard');
+            router.refresh();
         } catch (error) {
-            console.log("An unexpected error occurred. Please try again.", error);
+            toast.error("An unexpected error occurred");
+            console.error("Login error:", error);
         }
     };
 
@@ -87,8 +96,12 @@ const Login = () => {
                                         )}
                                     />
 
-                                    <Button className="w-full" type="submit" disabled={form.formState.isSubmitting}>
-                                        Submit
+                                    <Button 
+                                        className="w-full" 
+                                        type="submit" 
+                                        disabled={form.formState.isSubmitting}
+                                    >
+                                        {form.formState.isSubmitting ? "Signing in..." : "Sign in"}
                                     </Button>
                                 </form>
                             </Form>

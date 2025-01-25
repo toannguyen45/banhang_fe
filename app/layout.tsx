@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import App from "@/app/App";
-import { ToasterProvider } from "@/providers/toast-provider";
+import { Toaster } from "react-hot-toast";
 
 const quickSand = localFont({
   src: [
@@ -43,7 +43,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${quickSand.className}`} suppressHydrationWarning>
         <App>{children}</App>
-        <ToasterProvider />
+        <Toaster position="top-center" />
       </body>
     </html>
   );
