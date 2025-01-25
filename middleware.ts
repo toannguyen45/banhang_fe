@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { verifyJWT } from "./lib/jwt";
+import { JWTPayload } from "./types/auth";
 
 export async function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
@@ -13,7 +14,7 @@ export async function middleware(request: NextRequest) {
     // Auth paths - redirect if already logged in
     if (pathname.startsWith('/admin/signin')) {
         if (token) {
-            const decoded = await verifyJWT<{ role: string }>(token);
+            const decoded = await verifyJWT<JWTPayload>(token);
             if (decoded) {
                 return NextResponse.redirect(new URL('/', request.url));
             }
@@ -27,7 +28,7 @@ export async function middleware(request: NextRequest) {
             return NextResponse.redirect(new URL('/admin/signin', request.url));
         }
 
-        const decoded = await verifyJWT<{ role: string }>(token);
+        const decoded = await verifyJWT<JWTPayload>(token);
         if (!decoded || decoded.role.toLowerCase() !== 'admin') {
             return NextResponse.redirect(new URL('/', request.url));
         }
