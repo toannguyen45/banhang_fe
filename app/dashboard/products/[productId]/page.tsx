@@ -1,10 +1,10 @@
 import db from "@/lib/db";
 import { ProductForm } from "./components/product-form";
 
-const ProductPage = async ({ params }: { params: { productId: string } }) => {
+const ProductPage = async ({ props }: { props: { productId: string } }) => {
   const product = await db.product.findUnique({
     where: {
-      id: params.productId,
+      id: props.productId,
     },
     include: {
       images: true,
