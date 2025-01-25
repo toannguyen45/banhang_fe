@@ -2,7 +2,6 @@
 
 import React from "react";
 import MainNav from "./MainNav";
-// import UserButton from "./UserButton";
 import {
   Sheet,
   SheetContent,
