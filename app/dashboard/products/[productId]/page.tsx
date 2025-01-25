@@ -1,10 +1,16 @@
 import db from "@/lib/db";
 import { ProductForm } from "./components/product-form";
 
-const ProductPage = async ({ props }: { props: { productId: string } }) => {
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ productId: string }>
+}) {
+  const { productId } = await params;
+
   const product = await db.product.findUnique({
     where: {
-      id: props.productId,
+      id: productId,
     },
     include: {
       images: true,
@@ -14,6 +20,4 @@ const ProductPage = async ({ props }: { props: { productId: string } }) => {
   const categories = await db.category.findMany({});
 
   return <ProductForm initialData={product} categories={categories} />;
-};
-
-export default ProductPage;
+}
