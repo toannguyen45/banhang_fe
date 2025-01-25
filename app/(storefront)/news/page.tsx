@@ -1,7 +1,6 @@
 import React from "react";
 import HeroBanner from "@/app/components/ui/HeroBanner";
 import { NewsCard } from "@/app/components/storefront/News";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const newsItems = [

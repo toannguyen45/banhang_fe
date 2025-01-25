@@ -2,9 +2,6 @@ import {
   ShieldCheck,
   Clock,
   Users2,
-  BadgeCheck,
-  Microscope,
-  HeartHandshake,
 } from "lucide-react";
 import Image from "next/image";
 
