@@ -118,11 +118,11 @@ const ServiceCard = ({ service }: { service: ServiceFeature }) => (
     <div>
       <div className="flex items-center gap-3 mb-4">
         <div className="bg-primary/10 rounded-lg w-12 h-12 flex items-center justify-center">
-          <div className="text-primary">
+          <div className="text-primary group-hover:text-yellow-400 transition-colors">
             {service.icon}
           </div>
         </div>
-        <h3 className="text-2xl font-bold text-gray-900">
+        <h3 className="text-2xl font-bold text-gray-900 hover:text-yellow-400 transition-colors">
           {service.title}
         </h3>
       </div>
@@ -131,14 +131,14 @@ const ServiceCard = ({ service }: { service: ServiceFeature }) => (
       </p>
       <div className="space-y-3 mb-6">
         {service.benefits.map((benefit, index) => (
-          <div key={index} className="flex items-center gap-2">
-            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-            <span className="text-gray-700">{benefit}</span>
+          <div key={index} className="flex items-center gap-2 group hover:text-yellow-400 transition-colors">
+            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 group-hover:text-yellow-400 transition-colors" />
+            <span className="text-gray-700 group-hover:text-yellow-400 transition-colors">{benefit}</span>
           </div>
         ))}
       </div>
       <Link href={service.link}>
-        <Button className="bg-primary hover:bg-primary/90">
+        <Button className="bg-primary hover:bg-yellow-400 transition-colors">
           Tìm hiểu thêm <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </Link>

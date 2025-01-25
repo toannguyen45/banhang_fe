@@ -4,6 +4,7 @@ import SectionAbout from "@/app/components/storefront/SectionAbout";
 import React from "react";
 import SectionService from "../components/storefront/SectionService";
 import SectionContact from "../components/storefront/SectionContact";
+import SectionWhyChooseUs from "@/app/components/storefront/SectionWhyChooseUs";
 
 const IndexPage = () => {
   return (
@@ -11,8 +12,9 @@ const IndexPage = () => {
       <HeroSlider />
       <SectionAbout />
       <SectionService />
-      <News />
+      <SectionWhyChooseUs />
       <SectionContact />
+      <News />
     </>
   );
 };

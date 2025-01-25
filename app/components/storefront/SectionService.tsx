@@ -92,13 +92,13 @@ const ServiceCard = ({ service }: { service: Service }) => (
 
       {/* Bottom Content */}
       <div className="transform transition-transform duration-500 ease-out group-hover:-translate-y-4">
-        <h3 className="text-2xl font-bold mb-2 text-white">
+        <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-yellow-400 transition-colors">
           {service.title}
         </h3>
         <p className="text-gray-200 mb-4 line-clamp-2 opacity-0 transition-all duration-500 group-hover:opacity-100">
           {service.description}
         </p>
-        <div className="flex items-center text-sm font-medium text-white">
+        <div className="flex items-center text-sm font-medium text-white group-hover:text-yellow-400 transition-colors">
           Tìm hiểu thêm
           <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </div>
@@ -135,7 +135,7 @@ const SectionService = () => {
         {/* CTA Section */}
         <div className="text-center mt-12">
           <Link href="/services">
-            <Button className="bg-primary hover:bg-primary/90">
+            <Button className="bg-primary hover:bg-yellow-400 transition-colors">
               Xem tất cả dịch vụ <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>

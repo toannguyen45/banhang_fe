@@ -10,6 +10,7 @@ interface NewsItem {
   author: string;
   excerpt: string;
   slug: string;
+  category: string;
 }
 
 const newsItems: NewsItem[] = [
@@ -20,7 +21,8 @@ const newsItems: NewsItem[] = [
     title: "Why is a ticket to Lagos so expensive?",
     author: "admin",
     excerpt: "Tempor incididunt labore dolore magna aliqua. enim minim veniam quis nostrud exercitation laboris.",
-    slug: "why-is-a-ticket-to-lagos-so-expensive"
+    slug: "why-is-a-ticket-to-lagos-so-expensive",
+    category: "Technology"
   },
   {
     id: 2,
@@ -29,7 +31,8 @@ const newsItems: NewsItem[] = [
     title: "Máy quét 3D màu giá rẻ ScanTech iReal 2E",
     author: "admin",
     excerpt: "Máy quét 3D màu giá rẻ ScanTech iReal 2E là một máy quét 3D màu di động được phát triển đặc biệt để chụp các vật thể có kích thước trung bình",
-    slug: "may-quet-3d-mau-gia-re-scantech"
+    slug: "may-quet-3d-mau-gia-re-scantech",
+    category: "Product"
   },
   {
     id: 3,
@@ -38,13 +41,19 @@ const newsItems: NewsItem[] = [
     title: "Máy Scan 3D công nghiệp Scantech Simscan chính hãng",
     author: "admin",
     excerpt: "SIMSCAN, một máy quét 3D cầm tay có kích thước bằng lòng bàn tay, được thiết kế đặc biệt để quét 3D các khu",
-    slug: "may-scan-3d-cong-nghiep-scantech"
+    slug: "may-scan-3d-cong-nghiep-scantech",
+    category: "Industry"
   }
 ];
 
-const NewsCard = ({ item }: { item: NewsItem }) => (
+export const NewsCard = ({ item }: { item: NewsItem }) => (
   <article className="bg-white border rounded-lg transition-all duration-300 hover:shadow-lg">
     <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg">
+      <div className="absolute top-4 left-4 z-10">
+        <span className="bg-yellow-400 text-white px-3 py-1 rounded-full text-sm font-medium">
+          {item.category}
+        </span>
+      </div>
       <Image
         src={item.image}
         alt={item.title}
@@ -64,15 +73,17 @@ const NewsCard = ({ item }: { item: NewsItem }) => (
         <span className="text-gray-400">•</span>
         <span className="text-sm">By {item.author}</span>
       </div>
-      <h3 className="font-bold text-xl mb-3 line-clamp-2 text-gray-900">
-        {item.title}
-      </h3>
+      <Link href={`/news/${item.slug}`}>
+        <h3 className="font-bold text-xl mb-3 line-clamp-2 text-gray-900 hover:text-yellow-400 transition-colors">
+          {item.title}
+        </h3>
+      </Link>
       <p className="text-gray-600 mb-4 line-clamp-2">
         {item.excerpt}
       </p>
       <Link
         href={`/news/${item.slug}`}
-        className="inline-flex items-center text-primary hover:text-primary/80 font-medium 
+        className="inline-flex items-center text-primary hover:text-yellow-400 font-medium 
           transition-colors group"
         aria-label={`Read more about ${item.title}`}
       >

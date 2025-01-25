@@ -2,12 +2,14 @@ import { Mail, MapPin, Phone, Clock, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import Link from "next/link"
 
 interface ContactInfo {
   icon: React.ReactNode
   title: string
   content: string
   link?: string
+  isExternal?: boolean
 }
 
 const contactInfo: ContactInfo[] = [
@@ -15,19 +17,22 @@ const contactInfo: ContactInfo[] = [
     icon: <MapPin className="h-6 w-6 text-primary" />,
     title: "Địa chỉ",
     content: "145 N Los Ave, NY",
-    link: "https://maps.google.com/?q=145+N+Los+Ave+NY"
+    link: "https://maps.google.com/?q=145+N+Los+Ave+NY",
+    isExternal: true
   },
   {
     icon: <Phone className="h-6 w-6 text-primary" />,
     title: "Điện thoại",
     content: "+84 123 456 789",
-    link: "tel:+84123456789"
+    link: "tel:+84123456789",
+    isExternal: true
   },
   {
     icon: <Mail className="h-6 w-6 text-primary" />,
     title: "Email",
     content: "contact@3dteam.com",
-    link: "mailto:contact@3dteam.com"
+    link: "mailto:contact@3dteam.com",
+    isExternal: true
   },
   {
     icon: <Clock className="h-6 w-6 text-primary" />,
@@ -62,14 +67,23 @@ const SectionContact = () => {
                       {item.title}
                     </h3>
                     {item.link ? (
-                      <a 
-                        href={item.link}
-                        className="text-gray-600 hover:text-primary transition-colors"
-                        target={item.link.startsWith('http') ? '_blank' : undefined}
-                        rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      >
-                        {item.content}
-                      </a>
+                      item.isExternal ? (
+                        <a 
+                          href={item.link}
+                          className="text-gray-600 hover:text-yellow-400 transition-colors"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.content}
+                        </a>
+                      ) : (
+                        <Link 
+                          href={item.link}
+                          className="text-gray-600 hover:text-yellow-400 transition-colors"
+                        >
+                          {item.content}
+                        </Link>
+                      )
                     ) : (
                       <p className="text-gray-600">{item.content}</p>
                     )}
@@ -132,7 +146,7 @@ const SectionContact = () => {
 
               <Button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary/90"
+                className="w-full bg-primary hover:bg-yellow-400 transition-colors"
               >
                 Gửi tin nhắn <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

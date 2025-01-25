@@ -29,7 +29,7 @@ export const navItems = [
     },
     {
         label: "Tin tức",
-        link: "/blogs",
+        link: "/news",
     },
     {
         label: "Liên hệ",

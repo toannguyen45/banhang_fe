@@ -67,7 +67,7 @@ const SectionAbout = () => {
           {/* CTA Button */}
           <div className="pt-4">
             <Link href="/about">
-              <Button className="bg-primary hover:bg-primary/90">
+              <Button className="bg-primary hover:bg-yellow-400 transition-colors">
                 Tìm hiểu thêm <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>

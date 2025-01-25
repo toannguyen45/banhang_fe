@@ -17,7 +17,7 @@ const quickLinks: FooterLink[] = [
   { label: 'Giới thiệu', href: '/about' },
   { label: 'Dịch vụ', href: '/services' },
   { label: 'Sản phẩm', href: '/products' },
-  { label: 'Tin tức', href: '/blogs' },
+  { label: 'Tin tức', href: '/news' },
   { label: 'Liên hệ', href: '/contact' }
 ]
 
@@ -52,7 +52,7 @@ const Footer = () => {
                 <li key={link.href}>
                   <Link 
                     href={link.href}
-                    className="text-gray-300 hover:text-primary transition-colors inline-block"
+                    className="text-gray-300 hover:text-yellow-400 transition-colors inline-block"
                   >
                     {link.label}
                   </Link>
@@ -68,7 +68,7 @@ const Footer = () => {
               <li>
                 <Link 
                   href={`mailto:${contactInfo.email}`}
-                  className="text-gray-300 hover:text-primary transition-colors inline-flex items-center gap-2"
+                  className="text-gray-300 hover:text-yellow-400 transition-colors inline-flex items-center gap-2"
                 >
                   <Mail className="h-5 w-5" aria-hidden="true" />
                   <span>{contactInfo.email}</span>
@@ -77,7 +77,7 @@ const Footer = () => {
               <li>
                 <Link 
                   href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
-                  className="text-gray-300 hover:text-primary transition-colors inline-flex items-center gap-2"
+                  className="text-gray-300 hover:text-yellow-400 transition-colors inline-flex items-center gap-2"
                 >
                   <Phone className="h-5 w-5" aria-hidden="true" />
                   <span>{contactInfo.phone}</span>
@@ -97,7 +97,7 @@ const Footer = () => {
               href="https://github.com/minhtoan1210" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-yellow-400 transition-colors"
             >
               MinhToan
             </a>

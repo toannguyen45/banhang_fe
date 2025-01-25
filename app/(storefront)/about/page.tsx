@@ -64,7 +64,7 @@ const AboutPage = () => {
               khách hàng.
             </p>
             <Link href="/contact">
-              <Button className="bg-primary hover:bg-primary/90">
+              <Button className="bg-primary hover:bg-yellow-400 transition-colors">
                 Liên hệ ngay <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -83,8 +83,8 @@ const AboutPage = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center p-6 rounded-lg bg-gray-50">
-              <div className="text-4xl font-bold text-primary mb-2">
+            <div key={index} className="text-center p-6 rounded-lg bg-gray-50 hover:text-yellow-400 transition-colors">
+              <div className="text-4xl font-bold text-primary mb-2 hover:text-yellow-400 transition-colors">
                 {stat.number}
               </div>
               <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -101,10 +101,10 @@ const AboutPage = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm"
+                className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm hover:text-yellow-400 transition-colors group"
               >
-                <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-gray-700">{feature}</span>
+                <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 group-hover:text-yellow-400 transition-colors" />
+                <span className="text-gray-700 group-hover:text-yellow-400 transition-colors">{feature}</span>
               </div>
             ))}
           </div>
