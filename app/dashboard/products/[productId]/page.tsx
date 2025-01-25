@@ -1,16 +1,7 @@
 import db from "@/lib/db";
 import { ProductForm } from "./components/product-form";
 
-interface SearchParams {
-  [key: string]: string | string[] | undefined;
-}
-
-interface PageProps {
-  params: { productId: string };
-  searchParams: SearchParams;
-}
-
-const ProductPage = async ({ params }: PageProps) => {
+const ProductPage = async ({ params }: { params: { productId: string } }) => {
   const product = await db.product.findUnique({
     where: {
       id: params.productId,
