@@ -11,8 +11,8 @@ const IndexPage = () => {
       <HeroSlider />
       <SectionAbout />
       <SectionService />
-      <SectionContact />
       <News />
+      <SectionContact />
     </>
   );
 };
