@@ -2,6 +2,8 @@
 
 import * as z from "zod";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 // import axios from "axios";
 
 import { Button } from "@/components/ui/button";
@@ -63,19 +65,17 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   initialData,
   categories,
 }) => {
-  // const params = useParams();
-  // const router = useRouter();
-  // const origin = useOrigin();
+  const router = useRouter();
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const title = initialData ? "Cập nhật sản phẩm" : "Tạo sản phẩm";
   const description = initialData ? "Cập nhật sản phẩm" : "Chi tiết sản phẩm";
-  // const toastMessage = initialData
-  //   ? "Cập nhật sản phẩm thành công"
-  //   : "Product berhasil dibuat";
-  const action = initialData ? "Simpan Product" : "Tạo sản phẩm";
+  const toastMessage = initialData
+    ? "Cập nhật sản phẩm thành công"
+    : "Tạo sản phẩm thành công";
+  const action = initialData ? "Lưu sản phẩm" : "Tạo sản phẩm";
 
   const form = useForm<ProductFormValues>({
     resolver: zodResolver(formSchema),
@@ -95,39 +95,52 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   });
 
   const onSubmit = async (data: ProductFormValues) => {
-    // try {
-    //   setLoading(true);
-    //   if (initialData) {
-    //     await axios.patch(
-    //       `/api/${params.storeId}/products/${params.productId}`,
-    //       data
-    //     );
-    //   } else {
-    //     await axios.post(`/api/${params.storeId}/products`, data);
-    //   }
-    //   router.refresh();
-    //   router.push(`/${params.storeId}/products`);
-    //   toast.success(toastMessage);
-    // } catch (error) {
-    //   toast.error("Cek kembali data yang diinput");
-    // } finally {
-    //   setLoading(false);
-    // }
+    try {
+      setLoading(true);
+      
+      // Here you would typically make an API call to save the product
+      // For now, let's just simulate an API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      if (initialData) {
+        // Update existing product
+        console.log('Updating product:', data);
+        // await axios.patch(`/api/products/${initialData.id}`, data);
+      } else {
+        // Create new product
+        console.log('Creating new product:', data);
+        // await axios.post('/api/products', data);
+      }
+
+      router.refresh();
+      router.push('/dashboard/products');
+      toast.success(toastMessage);
+    } catch {
+      toast.error("Đã xảy ra lỗi. Vui lòng kiểm tra lại.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const onDelete = async () => {
-    // try {
-    //   setLoading(true);
-    //   await axios.delete(`/api/${params.storeId}/products/${params.productId}`);
-    //   router.refresh();
-    //   router.push(`/${params.storeId}/products`);
-    //   toast.success("Produk berhasil dihapus");
-    // } catch (error) {
-    //   toast.error("Cek kembali data dan koneksi mu");
-    // } finally {
-    //   setLoading(false);
-    //   setOpen(false);
-    // }
+    try {
+      setLoading(true);
+      
+      // Here you would typically make an API call to delete the product
+      // For now, let's just simulate an API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // await axios.delete(`/api/products/${initialData?.id}`);
+      
+      router.refresh();
+      router.push('/dashboard/products');
+      toast.success("Xóa sản phẩm thành công");
+    } catch {
+      toast.error("Đã xảy ra lỗi khi xóa sản phẩm");
+    } finally {
+      setLoading(false);
+      setOpen(false);
+    }
   };
 
   return (
