@@ -99,7 +99,7 @@ const SectionWhyChooseUs = () => {
               } gap-8 items-center`}
             >
               {/* Image Side */}
-              <div className="lg:w-1/2">
+              <div className="w-full lg:w-1/2">
                 <div className="relative h-[300px] lg:h-[400px] rounded-2xl overflow-hidden group">
                   <Image
                     src={feature.image}
