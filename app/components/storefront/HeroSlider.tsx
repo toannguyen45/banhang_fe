@@ -80,6 +80,7 @@ const HeroSlider = () => {
           isHovering ? "md:opacity-100" : ""
         } hidden md:flex`}
         onClick={prevSlide}
+        aria-label="Go to previous slide"
       >
         <ChevronLeft size={24} />
       </Button>
@@ -89,6 +90,7 @@ const HeroSlider = () => {
           isHovering ? "md:opacity-100" : ""
         } hidden md:flex`}
         onClick={nextSlide}
+        aria-label="Go to next slide"
       >
         <ChevronRight size={24} />
       </Button>
@@ -101,6 +103,7 @@ const HeroSlider = () => {
                 index === currentIndex ? "bg-white" : "bg-white/50"
               }`}
               onClick={() => setCurrentIndex(index)}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
