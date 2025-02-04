@@ -1,8 +1,6 @@
 import { Mail, MapPin, Phone, Clock } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import HeroBanner from "@/app/components/ui/HeroBanner"
+import ContactForm from "@/app/components/storefront/ContactForm"
 
 const contactInfo = [
   {
@@ -31,6 +29,10 @@ const contactInfo = [
 ]
 
 export default function ContactPage() {
+  const sendContact = async (formData: FormData) => {
+    console.log(formData)
+  }
+  
   return (
     <div className="bg-white">
       <HeroBanner
@@ -86,61 +88,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold mb-6">Gửi tin nhắn cho chúng tôi</h2>
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Họ và tên
-                  </label>
-                  <Input 
-                    id="name"
-                    placeholder="Nhập họ và tên"
-                    className="w-full"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
-                  </label>
-                  <Input 
-                    id="email"
-                    type="email"
-                    placeholder="example@domain.com"
-                    className="w-full"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                  Số điện thoại
-                </label>
-                <Input 
-                  id="phone"
-                  type="tel"
-                  placeholder="Nhập số điện thoại"
-                  className="w-full"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Nội dung
-                </label>
-                <Textarea 
-                  id="message"
-                  placeholder="Nhập nội dung tin nhắn"
-                  className="w-full min-h-[120px]"
-                />
-              </div>
-
-              <Button 
-                type="submit" 
-                className="w-full bg-primary hover:bg-primary/90"
-              >
-                Gửi tin nhắn
-              </Button>
-            </form>
+              <ContactForm />
           </div>
         </div>
 

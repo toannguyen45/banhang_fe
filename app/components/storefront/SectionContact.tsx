@@ -1,15 +1,16 @@
-import { Mail, MapPin, Phone, Clock, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import Link from "next/link"
+import { Mail, MapPin, Phone, Clock, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import Link from "next/link";
+import ContactForm from "./ContactForm";
 
 interface ContactInfo {
-  icon: React.ReactNode
-  title: string
-  content: string
-  link?: string
-  isExternal?: boolean
+  icon: React.ReactNode;
+  title: string;
+  content: string;
+  link?: string;
+  isExternal?: boolean;
 }
 
 const contactInfo: ContactInfo[] = [
@@ -18,28 +19,28 @@ const contactInfo: ContactInfo[] = [
     title: "Địa chỉ",
     content: "145 N Los Ave, NY",
     link: "https://maps.google.com/?q=145+N+Los+Ave+NY",
-    isExternal: true
+    isExternal: true,
   },
   {
     icon: <Phone className="h-6 w-6 text-primary" />,
     title: "Điện thoại",
     content: "+84 123 456 789",
     link: "tel:+84123456789",
-    isExternal: true
+    isExternal: true,
   },
   {
     icon: <Mail className="h-6 w-6 text-primary" />,
     title: "Email",
     content: "contact@3dteam.com",
     link: "mailto:contact@3dteam.com",
-    isExternal: true
+    isExternal: true,
   },
   {
     icon: <Clock className="h-6 w-6 text-primary" />,
     title: "Giờ làm việc",
-    content: "Thứ 2 - Thứ 7: 8:00 - 17:00"
-  }
-]
+    content: "Thứ 2 - Thứ 7: 8:00 - 17:00",
+  },
+];
 
 const SectionContact = () => {
   return (
@@ -51,7 +52,8 @@ const SectionContact = () => {
             <h2 className="text-3xl font-bold mb-2">Liên hệ với chúng tôi</h2>
             <div className="w-20 h-1 bg-primary mb-6"></div>
             <p className="text-gray-600 mb-8 text-lg">
-              Hãy liên hệ với chúng tôi để được tư vấn về giải pháp scan 3D phù hợp nhất cho doanh nghiệp của bạn.
+              Hãy liên hệ với chúng tôi để được tư vấn về giải pháp scan 3D phù
+              hợp nhất cho doanh nghiệp của bạn.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-8">
@@ -68,7 +70,7 @@ const SectionContact = () => {
                     </h3>
                     {item.link ? (
                       item.isExternal ? (
-                        <a 
+                        <a
                           href={item.link}
                           className="text-gray-600 hover:text-yellow-400 transition-colors"
                           target="_blank"
@@ -77,7 +79,7 @@ const SectionContact = () => {
                           {item.content}
                         </a>
                       ) : (
-                        <Link 
+                        <Link
                           href={item.link}
                           className="text-gray-600 hover:text-yellow-400 transition-colors"
                         >
@@ -95,67 +97,15 @@ const SectionContact = () => {
 
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold mb-6">Gửi tin nhắn cho chúng tôi</h2>
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="quick-name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Họ và tên
-                  </label>
-                  <Input 
-                    id="quick-name"
-                    placeholder="Nhập họ và tên"
-                    className="w-full"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="quick-email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
-                  </label>
-                  <Input 
-                    id="quick-email"
-                    type="email"
-                    placeholder="example@domain.com"
-                    className="w-full"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="quick-phone" className="block text-sm font-medium text-gray-700 mb-1">
-                  Số điện thoại
-                </label>
-                <Input 
-                  id="quick-phone"
-                  type="tel"
-                  placeholder="Nhập số điện thoại"
-                  className="w-full"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="quick-message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Nội dung
-                </label>
-                <Textarea 
-                  id="quick-message"
-                  placeholder="Nhập nội dung tin nhắn"
-                  className="w-full min-h-[120px]"
-                />
-              </div>
-
-              <Button 
-                type="submit" 
-                className="w-full bg-primary hover:bg-yellow-400 transition-colors"
-              >
-                Gửi tin nhắn <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </form>
+            <h2 className="text-2xl font-bold mb-6">
+              Gửi tin nhắn cho chúng tôi
+            </h2>
+            <ContactForm />
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SectionContact
+export default SectionContact;
