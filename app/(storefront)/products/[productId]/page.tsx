@@ -63,12 +63,14 @@ const product: Product = {
 };
 
 const ProductDetailPage = () => {
-  const [selectedImage, setSelectedImage] = React.useState<ProductImage>(product.images[0]);
+  const [selectedImage, setSelectedImage] = React.useState<ProductImage>(
+    product.images[0]
+  );
   const [quantity, setQuantity] = React.useState(1);
 
   const handleAddToCart = React.useCallback(() => {
     // Add to cart logic here
-    console.log('Adding to cart:', { product, quantity });
+    console.log("Adding to cart:", { product, quantity });
   }, [quantity]);
 
   const handleQuantityChange = React.useCallback((newQuantity: number) => {
@@ -89,14 +91,6 @@ const ProductDetailPage = () => {
       />
 
       <div className="container py-16">
-        <Link 
-          href="/products" 
-          className="inline-flex items-center text-gray-600 hover:text-primary mb-8"
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Quay lại danh sách sản phẩm
-        </Link>
-
         <div className="bg-white rounded-lg shadow-sm p-4 md:p-8">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* Product Images */}
@@ -118,7 +112,11 @@ const ProductDetailPage = () => {
                     key={image.id}
                     onClick={() => setSelectedImage(image)}
                     className={`relative aspect-square rounded-lg overflow-hidden border bg-white
-                      ${selectedImage.id === image.id ? 'ring-2 ring-primary' : ''}`}
+                      ${
+                        selectedImage.id === image.id
+                          ? "ring-2 ring-primary"
+                          : ""
+                      }`}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Image
@@ -175,10 +173,7 @@ const ProductDetailPage = () => {
                           <Plus className="h-4 w-4" />
                         </button>
                       </div>
-                      <Button 
-                        className="flex-1"
-                        onClick={handleAddToCart}
-                      >
+                      <Button className="flex-1" onClick={handleAddToCart}>
                         <ShoppingCart className="h-4 w-4 mr-2" />
                         Thêm vào giỏ hàng
                       </Button>
@@ -199,11 +194,15 @@ const ProductDetailPage = () => {
                 </div>
 
                 <div className="border-t pt-6">
-                  <h3 className="font-semibold text-lg mb-4">Thông số kỹ thuật</h3>
+                  <h3 className="font-semibold text-lg mb-4">
+                    Thông số kỹ thuật
+                  </h3>
                   <div className="grid grid-cols-2 gap-4">
                     {product.specifications.map((spec, index) => (
                       <div key={index} className="flex flex-col">
-                        <span className="text-sm text-gray-600">{spec.name}</span>
+                        <span className="text-sm text-gray-600">
+                          {spec.name}
+                        </span>
                         <span className="font-medium">{spec.value}</span>
                       </div>
                     ))}
@@ -212,7 +211,7 @@ const ProductDetailPage = () => {
 
                 <div className="border-t pt-6">
                   <h3 className="font-semibold text-lg mb-4">Mô tả sản phẩm</h3>
-                  <div 
+                  <div
                     className="prose prose-sm max-w-none"
                     dangerouslySetInnerHTML={{ __html: product.description }}
                   />

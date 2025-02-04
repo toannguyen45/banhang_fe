@@ -3,15 +3,12 @@ import {
   Scan, 
   PenTool, 
   CheckCircle2,
-  ArrowRight,
   Microscope,
   MonitorPlay,
   Building2,
   Cog
 } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import HeroBanner from "@/app/components/ui/HeroBanner"
 
 interface ServiceFeature {
@@ -126,22 +123,17 @@ const ServiceCard = ({ service }: { service: ServiceFeature }) => (
           {service.title}
         </h3>
       </div>
-      <p className="text-gray-600 mb-6">
+      <p className="text-gray-600 mb-6 text-lg">
         {service.description}
       </p>
       <div className="space-y-3 mb-6">
         {service.benefits.map((benefit, index) => (
           <div key={index} className="flex items-center gap-2 group hover:text-yellow-400 transition-colors">
             <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 group-hover:text-yellow-400 transition-colors" />
-            <span className="text-gray-700 group-hover:text-yellow-400 transition-colors">{benefit}</span>
+            <span className="text-gray-700 group-hover:text-yellow-400 transition-colors text-lg">{benefit}</span>
           </div>
         ))}
       </div>
-      <Link href={service.link}>
-        <Button className="bg-primary hover:bg-yellow-400 transition-colors">
-          Tìm hiểu thêm <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-      </Link>
     </div>
   </div>
 )
@@ -161,7 +153,7 @@ const ServicesPage = () => {
 
       <div className="container py-16 md:py-24">
         <div className="max-w-2xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold mb-2">
+          <h2 className="text-4xl font-bold mb-2 uppercase">
             GIẢI PHÁP TOÀN DIỆN
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>

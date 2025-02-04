@@ -4,7 +4,7 @@ import ContactForm from "@/app/components/storefront/ContactForm"
 
 const contactInfo = [
   {
-    icon: <MapPin className="h-6 w-6 text-primary" />,
+    icon: <MapPin className="h-7 w-7 text-primary" />,
     title: "Địa chỉ",
     content: "145 N Los Ave, NY",
     link: "https://maps.google.com/?q=145+N+Los+Ave+NY"
@@ -29,10 +29,6 @@ const contactInfo = [
 ]
 
 export default function ContactPage() {
-  const sendContact = async (formData: FormData) => {
-    console.log(formData)
-  }
-  
   return (
     <div className="bg-white">
       <HeroBanner
@@ -49,7 +45,7 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h2 className="text-3xl font-bold mb-2">Liên hệ với chúng tôi</h2>
+            <h2 className="text-4xl font-bold mb-2 uppercase">Liên hệ với chúng tôi</h2>
             <div className="w-20 h-1 bg-primary mb-6"></div>
             <p className="text-gray-600 mb-8 text-lg">
               Hãy liên hệ với chúng tôi để được tư vấn về giải pháp scan 3D phù hợp nhất cho doanh nghiệp của bạn.
@@ -59,18 +55,18 @@ export default function ContactPage() {
               {contactInfo.map((item, index) => (
                 <div key={index} className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center">
                       {item.icon}
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">
+                    <h3 className="font-bold text-gray-900 mb-1 text-lg">
                       {item.title}
                     </h3>
                     {item.link ? (
                       <a 
                         href={item.link}
-                        className="text-gray-600 hover:text-primary transition-colors"
+                        className="text-gray-600 hover:text-primary transition-colors text-lg"
                         target={item.link.startsWith('http') ? '_blank' : undefined}
                         rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                       >

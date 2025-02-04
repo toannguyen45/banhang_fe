@@ -41,9 +41,7 @@ const AboutPage = () => {
         description="Chúng tôi là đơn vị tiên phong trong lĩnh vực công nghệ quét 3D tại Việt Nam"
         image="/images/about-hero.jpg"
         alt="3D Scanning Technology"
-        breadcrumb={[
-          { label: "Về chúng tôi" }
-        ]}
+        breadcrumb={[{ label: "Về chúng tôi" }]}
       />
 
       {/* Main Content */}
@@ -51,7 +49,9 @@ const AboutPage = () => {
         {/* Mission Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div>
-            <h2 className="text-3xl font-bold mb-2">Sứ mệnh của chúng tôi</h2>
+            <h2 className="text-4xl font-bold mb-2 uppercase">
+              Sứ mệnh của chúng tôi
+            </h2>
             <div className="w-20 h-1 bg-primary mb-6"></div>
             <p className="text-gray-600 mb-6 text-lg">
               3DTeam ra đời với sứ mệnh mang công nghệ quét 3D tiên tiến đến gần
@@ -64,7 +64,7 @@ const AboutPage = () => {
               khách hàng.
             </p>
             <Link href="/contact">
-              <Button className="bg-primary hover:bg-yellow-400 transition-colors">
+              <Button className="bg-primary hover:bg-primary/90">
                 Liên hệ ngay <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -83,18 +83,21 @@ const AboutPage = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center p-6 rounded-lg bg-gray-50 hover:text-yellow-400 transition-colors">
+            <div
+              key={index}
+              className="text-center p-6 rounded-lg bg-gray-50 hover:text-yellow-400 transition-colors"
+            >
               <div className="text-4xl font-bold text-primary mb-2 hover:text-yellow-400 transition-colors">
                 {stat.number}
               </div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-gray-600 font-medium text-lg">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Features Section */}
         <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">
+          <h2 className="text-2xl font-bold mb-8 text-center">
             Tại sao chọn chúng tôi?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -104,7 +107,9 @@ const AboutPage = () => {
                 className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm hover:text-yellow-400 transition-colors group"
               >
                 <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 group-hover:text-yellow-400 transition-colors" />
-                <span className="text-gray-700 group-hover:text-yellow-400 transition-colors">{feature}</span>
+                <span className="text-gray-700 group-hover:text-yellow-400 transition-colors text-lg">
+                  {feature}
+                </span>
               </div>
             ))}
           </div>

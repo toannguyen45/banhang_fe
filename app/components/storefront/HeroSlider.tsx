@@ -10,14 +10,14 @@ const carouselItems = [
     id: 1,
     image: "/images/slide1.jpg",
     alt: "Featured Product 1",
-    title: "New Arrivals",
+    title: "Lựa chọn số 1",
     description: "Check out our latest collection",
   },
   {
     id: 2,
     image: "/images/slide3.png",
     alt: "Featured Product 2",
-    title: "Summer Sale",
+    title: "Sản phẩm chất lượng",
     description: "Up to 50% off on selected items",
   },
 ];
@@ -66,7 +66,7 @@ const HeroSlider = () => {
               />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                 <div className="text-center text-white">
-                  <h2 className="text-4xl font-bold mb-2">{item.title}</h2>
+                  <h2 className="text-5xl font-bold mb-2 uppercase">{item.title}</h2>
                   <p className="text-xl">{item.description}</p>
                 </div>
               </div>

@@ -51,7 +51,7 @@ const SectionWhyChooseUs = () => {
         <div className="absolute inset-0 flex items-center">
           <div className="container">
             <div className="max-w-2xl text-white">
-              <h2 className="text-4xl font-bold mb-4">
+              <h2 className="text-4xl font-bold mb-4 uppercase">
                 Tại Sao Chọn Chúng Tôi?
               </h2>
               <div className="w-20 h-1 bg-yellow-400 mb-6"></div>
@@ -79,7 +79,7 @@ const SectionWhyChooseUs = () => {
                     <div className="text-4xl font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors">
                       {stat.number}
                     </div>
-                    <div className="text-gray-600 font-medium">
+                    <div className="text-lg">
                       {stat.label}
                     </div>
                   </div>
@@ -128,7 +128,7 @@ const SectionWhyChooseUs = () => {
                   {[1, 2, 3].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-yellow-400" />
-                      <span className="text-gray-600">
+                      <span className="text-gray-600 text-lg">
                         Benefit point {item}
                       </span>
                     </li>

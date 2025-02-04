@@ -15,9 +15,9 @@ const SectionAbout = () => {
     <section className="container py-16 md:py-24">
       {/* Section Header */}
       <div className="max-w-2xl mx-auto text-center mb-12">
-        <h2 className="text-3xl font-bold mb-2">VỀ CHÚNG TÔI</h2>
+        <h2 className="text-4xl font-bold mb-2">VỀ CHÚNG TÔI</h2>
         <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg">
           Chúng tôi là đơn vị tiên phong trong lĩnh vực công nghệ quét 3D tại
           Việt Nam
         </p>
@@ -43,7 +43,7 @@ const SectionAbout = () => {
             <h3 className="text-2xl font-bold mb-4">
               Giải pháp quét 3D toàn diện cho doanh nghiệp của bạn
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-lg">
               3DTeam cung cấp giải pháp toàn diện từ tư vấn, triển khai đến hỗ
               trợ kỹ thuật. Với đội ngũ kỹ sư giàu kinh nghiệm và trang thiết bị
               hiện đại, chúng tôi cam kết mang đến những sản phẩm chất lượng cao
@@ -59,7 +59,7 @@ const SectionAbout = () => {
                 className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg"
               >
                 <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-gray-700">{feature}</span>
+                <span className="text-lg">{feature}</span>
               </div>
             ))}
           </div>
@@ -67,7 +67,7 @@ const SectionAbout = () => {
           {/* CTA Button */}
           <div className="pt-4">
             <Link href="/about">
-              <Button className="bg-primary hover:bg-yellow-400 transition-colors">
+              <Button className="bg-primary hover:bg-primary/90">
                 Tìm hiểu thêm <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>

@@ -38,21 +38,21 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* About Section */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Về chúng tôi</h3>
-            <p className="text-gray-300 leading-relaxed">
+            <h3 className="text-4xl font-bold mb-4">Về chúng tôi</h3>
+            <p className="text-gray-300 leading-relaxed text-lg">
               {contactInfo.description}
             </p>
           </div>
 
           {/* Quick Links */}
           <nav aria-label="Footer Navigation">
-            <h3 className="text-2xl font-bold mb-4">Liên kết nhanh</h3>
+            <h3 className="text-4xl font-bold mb-4">Liên kết nhanh</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link 
                     href={link.href}
-                    className="text-gray-300 hover:text-yellow-400 transition-colors inline-block"
+                    className="text-gray-300 hover:text-yellow-400 transition-colors inline-block text-lg"
                   >
                     {link.label}
                   </Link>
@@ -63,7 +63,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Liên hệ</h3>
+            <h3 className="text-4xl font-bold mb-4">Liên hệ</h3>
             <ul className="space-y-3">
               <li>
                 <Link 
@@ -71,7 +71,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-yellow-400 transition-colors inline-flex items-center gap-2"
                 >
                   <Mail className="h-5 w-5" aria-hidden="true" />
-                  <span>{contactInfo.email}</span>
+                  <span className='text-lg'>{contactInfo.email}</span>
                 </Link>
               </li>
               <li>
@@ -80,7 +80,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-yellow-400 transition-colors inline-flex items-center gap-2"
                 >
                   <Phone className="h-5 w-5" aria-hidden="true" />
-                  <span>{contactInfo.phone}</span>
+                  <span className='text-lg'>{contactInfo.phone}</span>
                 </Link>
               </li>
             </ul>

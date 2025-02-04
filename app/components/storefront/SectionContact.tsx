@@ -1,7 +1,4 @@
-import { Mail, MapPin, Phone, Clock, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
 
@@ -49,7 +46,7 @@ const SectionContact = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h2 className="text-3xl font-bold mb-2">Liên hệ với chúng tôi</h2>
+            <h2 className="text-4xl font-bold mb-2 uppercase">Liên hệ với chúng tôi</h2>
             <div className="w-20 h-1 bg-primary mb-6"></div>
             <p className="text-gray-600 mb-8 text-lg">
               Hãy liên hệ với chúng tôi để được tư vấn về giải pháp scan 3D phù
@@ -60,19 +57,19 @@ const SectionContact = () => {
               {contactInfo.map((item, index) => (
                 <div key={index} className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center">
                       {item.icon}
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">
+                    <h3 className="font-bold text-gray-900 mb-1 text-lg">
                       {item.title}
                     </h3>
                     {item.link ? (
                       item.isExternal ? (
                         <a
                           href={item.link}
-                          className="text-gray-600 hover:text-yellow-400 transition-colors"
+                          className="text-gray-600 hover:text-yellow-400 transition-colors text-lg"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -81,7 +78,7 @@ const SectionContact = () => {
                       ) : (
                         <Link
                           href={item.link}
-                          className="text-gray-600 hover:text-yellow-400 transition-colors"
+                          className="text-gray-600 hover:text-yellow-400 transition-colors text-lg"
                         >
                           {item.content}
                         </Link>
