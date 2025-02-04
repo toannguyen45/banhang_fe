@@ -3,8 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Minus, Plus, Check, ArrowLeft } from "lucide-react";
-import Link from "next/link";
+import { ShoppingCart, Minus, Plus, Check } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 import HeroBanner from "@/app/components/ui/HeroBanner";
 
