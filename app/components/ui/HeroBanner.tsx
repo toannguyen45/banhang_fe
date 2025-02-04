@@ -68,12 +68,12 @@ const HeroBanner = ({
                 {item.href ? (
                   <Link 
                     href={item.href}
-                    className="text-gray-500 hover:text-primary transition-colors text-lg"
+                    className="text-gray-500 hover:text-primary transition-colors md:text-lg text-sm"
                   >
                     {item.label}
                   </Link>
                 ) : (
-                  <span className="text-gray-900 font-medium text-lg">
+                  <span className="text-gray-900 font-medium md:text-lg text-sm">
                     {item.label}
                   </span>
                 )}
