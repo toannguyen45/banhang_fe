@@ -1,7 +1,7 @@
 "use server";
 
 import { contactTemplate } from "@/lib/templates/contact";
-import { mailType } from "@/types/contact-form";
+import { mailType } from "@/types/types";
 import nodemailer from "nodemailer";
 import * as handlebars from "handlebars";
 

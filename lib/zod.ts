@@ -12,14 +12,14 @@ export const signInSchema = z.object({
     .max(100, "Password is too long"),
 });
 
-export const bannerSchema = z.object({
-  label: z.string(),
-  imageUrl: z.string(),
-});
-
 export const contactInfoSchema = z.object({
   name: z.string().min(1, "Vui lòng nhập họ và tên"),
   email: z.string().email("Vui lòng nhập đúng định dạng email"),
   phone: z.string().min(1, "Vui lòng nhập số điện thoại"),
   message: z.string().min(1, "Vui lòng nhập nội dung tin nhắn"),
+});
+
+export const bannerSchema = z.object({
+  title: z.string().min(1, "Vui lòng nhập tiêu đề"),
+  imageString: z.string().min(1, "Vui lòng chọn hình ảnh"),
 });

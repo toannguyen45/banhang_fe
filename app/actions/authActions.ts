@@ -76,7 +76,9 @@ export async function getCurrentUser(): Promise<User | null> {
             select: {
                 id: true,
                 email: true,
-                name: true,
+                firstName: true,
+                lastName: true,
+                profileImage: true,
                 role: true
             }
         });
