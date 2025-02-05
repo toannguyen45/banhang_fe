@@ -1,7 +1,9 @@
 "use server";
 
+import { contactTemplate } from "@/lib/templates/contact";
 import { mailType } from "@/types/contact-form";
 import nodemailer from "nodemailer";
+import * as handlebars from "handlebars";
 
 export async function sendContact(formData: mailType) {
   try {
@@ -18,7 +20,7 @@ export async function sendContact(formData: mailType) {
       to: process.env.MAIL_RECEIVER_ADDRESS,
       subject: `${formData.name} muốn liên hệ với bạn`,
       text: formData.message,
-      html: "",
+      html: await complileContactTemplate(formData),
     };
 
     await transporter.sendMail(mailOptions);
@@ -33,4 +35,10 @@ export async function sendContact(formData: mailType) {
       message: "Có lỗi xảy ra khi gửi mail, vui lòng thử lại sau",
     };
   }
+}
+
+export async function complileContactTemplate(formData: mailType) {
+  const template = handlebars.compile(contactTemplate);
+  const htmlBody = template(formData);
+  return htmlBody;
 }

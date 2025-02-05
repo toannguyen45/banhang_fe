@@ -9,18 +9,27 @@ import { mailType } from "@/types/contact-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const ContactForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<mailType>({
     resolver: zodResolver(contactInfoSchema),
   });
 
   const onSubmit = async (formData: mailType) => {
-    sendContact(formData);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await sendContact(formData);
+      toast.success("Email đã được gửi thành công");
+      reset();
+    } catch {
+      toast.error("Có lỗi xảy ra khi gửi mail, vui lòng thử lại sau");
+    }
   };
 
   return (
