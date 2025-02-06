@@ -47,7 +47,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
                 className="object-cover w-full h-full"
                 width="960"
                 height="600"
-                priority={index === 0}
+                priority
               />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                 <div className="text-center text-white">
