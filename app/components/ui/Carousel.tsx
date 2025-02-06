@@ -38,7 +38,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
         className="flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {items.map((item, index) => (
+        {items.map((item) => (
           <div key={item.id} className="w-full flex-shrink-0">
             <div className="relative h-[60vh] lg:h-[80vh]">
               <Image

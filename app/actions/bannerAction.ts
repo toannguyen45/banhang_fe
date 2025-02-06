@@ -5,6 +5,7 @@ import db from "@/lib/db";
 import { bannerSchema } from "@/lib/zod";
 import { redirect } from "next/navigation";
 import { z } from "zod";
+import { v2 as cloudinary } from "cloudinary";
 
 export async function createBanner(formData: z.infer<typeof bannerSchema>) {
   const user = await authenticateAdmin();
@@ -46,9 +47,26 @@ export async function deleteBanner(formData: FormData) {
     return redirect("/dashboard");
   }
 
+  const bannerId = formData.get("bannerId") as string;
+
+  const banner = await db.banner.findUnique({
+    where: { id: bannerId },
+  });
+
+  if (banner && banner.imageString) {
+    const publicId = banner.imageString.split("/").pop()?.split(".")[0];
+    if (publicId) {
+      try {
+        await cloudinary.uploader.destroy(publicId);
+      } catch (error) {
+        console.error("Error deleting image from Cloudinary:", error);
+      }
+    }
+  }
+
   await db.banner.delete({
     where: {
-      id: formData.get("bannerId") as string,
+      id: bannerId,
     },
   });
 
