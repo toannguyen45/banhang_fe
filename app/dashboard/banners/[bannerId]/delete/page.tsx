@@ -9,11 +9,13 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 
-export default function DeleteBannerRoute({
+export default async function DeleteBannerRoute({
   params,
 }: {
-  params: { bannerId: string };
+  params: Promise<{ bannerId: string }>;
 }) {
+  const { bannerId } = await params;
+
   return (
     <div className="h-[80vh] w-full flex items-center justify-center">
       <Card className="max-w-xl">
@@ -28,7 +30,7 @@ export default function DeleteBannerRoute({
             <Link href="/dashboard/banner">Huỷ</Link>
           </Button>
           <form action={deleteBanner}>
-            <input type="hidden" name="bannerId" value={params.bannerId} />
+            <input type="hidden" name="bannerId" value={bannerId} />
             <Button variant="destructive">Xoá</Button>
           </form>
         </CardFooter>
