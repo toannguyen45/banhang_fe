@@ -81,8 +81,14 @@ const ServiceCard = ({ service }: { service: Service }) => (
       <Image
         src={service.image}
         alt={service.title}
-        fill
-        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+        width="500"
+        height="500"
+        loading="lazy"
+        className="object-cover 
+        w-full h-full 
+        transition-transform 
+        duration-700 ease-out 
+        group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/80" />
     </div>

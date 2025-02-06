@@ -10,4 +10,14 @@ export type bannerType = {
   title: string;
   imageString: string;
   createdAt: string;
-}
+};
+
+export type CarouselItem = {
+  id: string;
+  title: string;
+  imageString: string;
+};
+
+export type CarouselProps = {
+  items: CarouselItem[];
+};

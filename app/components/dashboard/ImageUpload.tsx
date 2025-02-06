@@ -47,10 +47,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         if (response.ok) {
           onRemove(url);
         } else {
-          console.error("Failed to delete image from Cloudinary");
+          console.error("Lỗi khi xoá ảnh");
         }
       } catch (error) {
-        console.error("Error deleting image:", error);
+        console.error("Có lỗi khi xoá ảnh:", error);
       }
     }
   };
@@ -99,7 +99,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
               onClick={onClick}
             >
               <ImagePlus className="h-4 w-4 mr-2" />
-              Upload an Image
+              Nhấn vào đây để tải ảnh lên
             </Button>
           );
         }}

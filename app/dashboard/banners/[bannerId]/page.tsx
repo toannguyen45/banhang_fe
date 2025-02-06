@@ -63,17 +63,17 @@ export default function BannerRoute() {
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="flex items-center gap-x-4">
             <Button variant="outline" size="icon" asChild>
-              <Link href="/dashboard/products">
+              <Link href="/dashboard/banners">
                 <ChevronLeft className="w-4 h-4" />
               </Link>
             </Button>
-            <h1 className="text-xl font-semibold tracking-tight">New Banner</h1>
+            <h1 className="text-xl font-semibold tracking-tight">Thêm mới Banner</h1>
           </div>
 
           <Card className="mt-5">
             <CardHeader>
-              <CardTitle>Banner Details</CardTitle>
-              <CardDescription>Create your banner right here</CardDescription>
+              <CardTitle>Thông tin banner</CardTitle>
+              <CardDescription>Nhập các thông tin bên dưới</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-col gap-y-6">
@@ -82,11 +82,11 @@ export default function BannerRoute() {
                   name="title"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Title</FormLabel>
+                      <FormLabel>Tiêu đề</FormLabel>
                       <FormControl>
                         <Input
                           type="text"
-                          placeholder="Create title for Banner"
+                          placeholder="Nhập tiêu đề"
                           {...field}
                         />
                       </FormControl>
@@ -99,7 +99,7 @@ export default function BannerRoute() {
                   name="imageString"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Image URL</FormLabel>
+                      <FormLabel>Tải hình ảnh lên</FormLabel>
                       <FormControl>
                         <ImageUpload
                           value={field.value ? [field.value] : []}
@@ -116,11 +116,10 @@ export default function BannerRoute() {
             </CardContent>
             <CardFooter>
               <Button
-                className="w-full"
                 type="submit"
                 disabled={form.formState.isSubmitting}
               >
-                {form.formState.isSubmitting ? "Signing in..." : "Sign in"}
+                {form.formState.isSubmitting ? "Đang tạo..." : "Tạo banner"}
               </Button>
             </CardFooter>
           </Card>

@@ -82,10 +82,11 @@ export default async function BannerRoute() {
                 <TableRow key={item.id}>
                   <TableCell>
                     <Image
-                      alt="Product Image"
+                      alt="ảnh-banner"
                       src={item.imageString}
                       width={64}
                       height={64}
+                      loading="lazy"
                       className="rounded-lg object-cover h-16 w-16"
                     />
                   </TableCell>
