@@ -18,8 +18,8 @@ const MainNav = () => {
       name: "Banners",
     },
     {
-      href: `/dashboard/categories`,
-      name: "Danh mục",
+      href: `/dashboard/orders`,
+      name: "Đơn hàng",
     },
     {
       href: `/dashboard/products`,

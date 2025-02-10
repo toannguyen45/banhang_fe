@@ -84,10 +84,10 @@ export default async function BannerRoute() {
                     <Image
                       alt="ảnh-banner"
                       src={item.imageString}
-                      width={64}
-                      height={64}
+                      width={200}
+                      height={100}
                       loading="lazy"
-                      className="rounded-lg object-cover h-16 w-16"
+                      className="rounded-lg object-cover h-25 w-25"
                     />
                   </TableCell>
                   <TableCell className="font-medium">{item.title}</TableCell>

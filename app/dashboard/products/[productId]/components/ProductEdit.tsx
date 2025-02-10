@@ -1,7 +1,6 @@
 "use client";
 
-import { createProduct } from "@/app/actions/productActions";
-import ImageUpload from "@/app/components/dashboard/ImageUpload";
+import { editProduct } from "@/app/actions/productActions";
 import FileInput from "@/app/components/ui/FileInput";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,6 +31,7 @@ import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { productSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { $Enums } from "@prisma/client";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -40,37 +40,50 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { z } from "zod";
 
-const ProductCreate = () => {
+interface ProductEditProps {
+  data: {
+    id: string;
+    name: string;
+    description: string;
+    status: $Enums.ProductStatus;
+    price: number;
+    images: string[];
+    category: $Enums.Category;
+    isFeatured: boolean;
+  };
+}
+
+const ProductEdit: React.FC<ProductEditProps> = ({ data }) => {
   const router = useRouter();
+
+  const updateProductWithId = editProduct.bind(null, data.id);
 
   const form = useForm<z.infer<typeof productSchema>>({
     resolver: zodResolver(productSchema),
     defaultValues: {
-      name: "",
-      description: "",
-      status: "draft",
-      price: 0,
-      images: [],
-      category: "product",
-      isFeatured: false,
+      name: data.name,
+      description: data.description,
+      status: data.status,
+      price: data.price,
+      images: data.images,
+      category: data.category,
+      isFeatured: data.isFeatured,
     },
   });
 
   const onSubmit = async (values: z.infer<typeof productSchema>) => {
     try {
-      console.log(values, "values");
-      const result = await createProduct(values);
+      const result = await updateProductWithId(values);
 
       if (result.errors) {
         toast.error(JSON.stringify(result.errors));
         return;
       }
-      toast.success("Tạo sản phẩm thành công");
+      toast.success("Chỉnh sửa sản phẩm thành công");
       router.push("/dashboard/products");
       router.refresh();
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      toast.error(error.message || "Có lỗi xảy ra");
+    } catch (error) {
+      console.error("Error submitting form:", error);
     }
   };
 
@@ -84,7 +97,7 @@ const ProductCreate = () => {
             </Link>
           </Button>
           <h1 className="text-xl font-semibold tracking-tight">
-            Thêm mới sản phẩm
+            Chỉnh sửa sản phẩm
           </h1>
         </div>
 
@@ -135,7 +148,7 @@ const ProductCreate = () => {
                   <FormItem>
                     <FormLabel>Giá</FormLabel>
                     <FormControl>
-                      <Input placeholder="Nhập giá" type="text" {...field} />
+                      <Input placeholder="Nhập giá" type="number" {...field} />
                     </FormControl>
 
                     <FormMessage />
@@ -249,4 +262,4 @@ const ProductCreate = () => {
   );
 };
 
-export default ProductCreate;
+export default ProductEdit;

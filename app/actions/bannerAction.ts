@@ -5,7 +5,7 @@ import db from "@/lib/db";
 import { bannerSchema } from "@/lib/zod";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { v2 as cloudinary } from "cloudinary";
+import cloudinary from "@/lib/cloudinaryConfig";
 
 export async function createBanner(formData: z.infer<typeof bannerSchema>) {
   const user = await authenticateAdmin();

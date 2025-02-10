@@ -2,6 +2,7 @@
 
 import { createBanner } from "@/app/actions/bannerAction";
 import ImageUpload from "@/app/components/dashboard/ImageUpload";
+import FileInput from "@/app/components/ui/FileInput";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -67,7 +68,9 @@ export default function BannerRoute() {
                 <ChevronLeft className="w-4 h-4" />
               </Link>
             </Button>
-            <h1 className="text-xl font-semibold tracking-tight">Thêm mới Banner</h1>
+            <h1 className="text-xl font-semibold tracking-tight">
+              Thêm mới Banner
+            </h1>
           </div>
 
           <Card className="mt-5">
@@ -101,11 +104,11 @@ export default function BannerRoute() {
                     <FormItem>
                       <FormLabel>Tải hình ảnh lên</FormLabel>
                       <FormControl>
-                        <ImageUpload
-                          value={field.value ? [field.value] : []}
+                        <FileInput
+                          value={field.value}
                           disabled={form.formState.isSubmitting}
-                          onChange={(url) => field.onChange(url)}
-                          onRemove={() => field.onChange("")}
+                          onChange={(urls) => field.onChange(urls)}
+                          maxImages={5}
                         />
                       </FormControl>
                       <FormMessage />
@@ -115,11 +118,8 @@ export default function BannerRoute() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button
-                type="submit"
-                disabled={form.formState.isSubmitting}
-              >
-                {form.formState.isSubmitting ? "Đang tạo..." : "Tạo banner"}
+              <Button type="submit" disabled={form.formState.isSubmitting}>
+                {form.formState.isSubmitting ? "Đang tạo..." : "Tạo"}
               </Button>
             </CardFooter>
           </Card>

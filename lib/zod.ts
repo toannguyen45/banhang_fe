@@ -23,3 +23,15 @@ export const bannerSchema = z.object({
   title: z.string().min(1, "Vui lòng nhập tiêu đề"),
   imageString: z.string().min(1, "Vui lòng chọn hình ảnh"),
 });
+
+export const productSchema = z.object({
+  name: z.string().min(1, "Vui lòng nhập tên sản phẩm"),
+  description: z.string(),
+  status: z.enum(["draft", "published", "archived"]),
+  price: z.coerce.number().refine((val) => !isNaN(val) && val > 0, {
+    message: "Vui lòng nhập giá hợp lệ và lớn hơn 0",
+  }),
+  images: z.array(z.string()).min(1, "Vui lòng tải lên ít nhất một hình ảnh"),
+  category: z.enum(["printer", "scan", "product"]),
+  isFeatured: z.boolean().optional(),
+});
