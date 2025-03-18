@@ -61,13 +61,19 @@ const ProductCreate = () => {
       console.log(values, "values");
       const result = await createProduct(values);
 
-      if (result.errors) {
+      if (result?.errors) {
         toast.error(JSON.stringify(result.errors));
         return;
+      } else {
+        toast.success("Tạo sản phẩm thành công");
+        // update client-side cache
+        router.refresh();
+        // reset dirty fields
+        form.reset(form.getValues());
+
+        router.push("/dashboard/products");
       }
-      toast.success("Tạo sản phẩm thành công");
-      router.push("/dashboard/products");
-      router.refresh();
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast.error(error.message || "Có lỗi xảy ra");
